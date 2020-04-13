@@ -1,0 +1,28 @@
+// Resets and defaults
+@import './base/resets';
+
+//Components 
+@import './components/header';
+@import './components/navbar';
+@import './components/footer';
+@import './components/hamburger';
+
+
+//Atoms
+
+@import './atoms/cards';
+
+
+//Ultilities 
+@import './utilities/variables';
+@import './utilities/mixins';
+
+//Pages
+@import './pages/index';
+
+
+
+
+
+
+
