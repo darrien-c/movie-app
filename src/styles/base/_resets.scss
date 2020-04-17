@@ -3,6 +3,7 @@
 // Box Sizing Reset
 html {
     box-sizing: border-box;
+    height: 100%;
 }
 
 *, *:before, *:after {
@@ -15,8 +16,18 @@ img {
     height: auto;
 }
 
+h1, h2, h3, h4, p {
+    margin: 0;
+    padding: 0;
+}
+
 // Remove margins on body
+
 body {
     margin: 0;
-    
+    height: 100%;
+}
+
+.wrapper {
+    height: 100%;
 }

@@ -1,29 +1,27 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Nav from './Nav';
+import HamburgerToggle from '../components/sideToggle/hamburgerToggle';
 
 
-const Header = () => {
+const Header = (props) => (
   /* toolbar = header-bar
       toolbar__navigation = navbar
       toolbar__logo = header-logo
        toolbar_navigation-items = navbar-items*/
-  return (
+
     <header className="header-bar">
-      
       <nav className="navbar">
+        <div className="toggle-hamburger-button">
+          <HamburgerToggle click={props.sideToggleClickHandler}/>
+        </div>
+
         <div className="header-logo">
-          <h1>Movie<span>Go</span></h1>
+          <NavLink to = {'/'}><h1>Movie<span>Go</span></h1></NavLink>
         </div>
-        <div className="navbar-items">
-          <ul>
-            <li><NavLink to={'/'} exact>Home</NavLink></li>
-            <li><NavLink to={'/individual'}>Individual</NavLink></li>
-            <li><NavLink to={'/favourites'}>Favourites</NavLink></li>
-            <li><NavLink to={'/about'}>About</NavLink></li>
-          </ul>
-        </div>
+          <Nav />
       </nav>
   </header >
   );
-}
+
 export default Header;
