@@ -18,7 +18,6 @@ const AppRouter = () => (
     <Router>
         <div className="wrapper">
             <Header />
-            <Nav />
             <Switch>
                 <Route path="/" exact><Home /></Route>
                 <Route path="/about"><About /></Route>
