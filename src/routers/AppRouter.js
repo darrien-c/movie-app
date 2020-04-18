@@ -1,12 +1,12 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch, NavLink } from 'react-router-dom';
+import React, {  useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Link, Switch, NavLink, Redirect } from 'react-router-dom';
 
 //Components
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import SideToggle from '../components/sideToggle/sideToggle';
 import Backdrop from '../components/sideToggle/Backdrop';
-
+import { API_URL , API_KEY, API_URL_POPULAR, IMAGE_URL} from '../global/variables';
 
 // Pages
 import About from '../components/About';
@@ -16,12 +16,13 @@ import Individual from '../components/Individual';
 import PageNotFound from '../components/PageNotFound';
 
 
+
+
 class AppRouter extends React.Component {
 
-    state = {
-        sideToggleOpen: false
+   state = {
+        sideToggleOpen: false,   
     }
-
 
     //Opens side navigaion
     sideToggleClickHandler = () => {
@@ -34,6 +35,10 @@ class AppRouter extends React.Component {
     backdropClickHandler = () => {
         this.setState({sideToggleOpen: false});
     }
+
+
+   
+
 
 
 
@@ -61,6 +66,7 @@ class AppRouter extends React.Component {
                         <Route path="/about"><About /></Route>
                         <Route path="/individual"><Individual /></Route>
                         <Route path="/favourites"><Favourites /></Route>
+                       
                         <Route><PageNotFound /></Route>
                     </Switch>
                     <Footer />

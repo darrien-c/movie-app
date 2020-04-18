@@ -20,4 +20,6 @@ export const API_KEY = '8378ecab4c3b33dc26547ee009cd485e';
 export const API_URL      = 'https://api.themoviedb.org/3';
 
 export const API_URL_POPULAR = 'https://api.themoviedb.org/3/movie/popular?api_key=8378ecab4c3b33dc26547ee009cd485e&language=en-US&page=1';
-//export const IMAGE_URL    = 
+
+export const IMAGE_URL    = 'https://image.tmdb.org/t/p/';
+
