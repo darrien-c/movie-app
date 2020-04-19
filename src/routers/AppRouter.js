@@ -1,12 +1,12 @@
-import React, {  useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch, NavLink, Redirect } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 //Components
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import SideToggle from '../components/sideToggle/sideToggle';
 import Backdrop from '../components/sideToggle/Backdrop';
-import { API_URL , API_KEY, API_URL_POPULAR, IMAGE_URL} from '../global/variables';
+
 
 
 //Filters
@@ -20,7 +20,7 @@ import Home from '../components/Home';
 import Favourites from '../components/Favourites';
 import Individual from '../components/Individual';
 import PageNotFound from '../components/PageNotFound';
-
+import Movie from '../components/sections/Movie';
 
 
 
@@ -70,6 +70,7 @@ class AppRouter extends React.Component {
                         <Route path="/nowplaying" exact component={NowPlaying} />
                         <Route path="/toprated" exact component={TopRated} />
                         <Route path="/upcoming" exact component={Upcoming} />
+                        <Route path="/movie/:movieId" exact component={Movie} />
                         <Route><PageNotFound /></Route>
                     </Switch>
                     <Footer />

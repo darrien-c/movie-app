@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { API_URL , API_KEY, API_URL_NOWPLAYING, IMAGE_URL} from '../../global/variables';
+import { API_URL_NOWPLAYING } from '../../global/variables';
 import { GridCard } from '../sections/GridCard';
 import SubHeader from '../sections/SubHeader';
 
@@ -24,7 +24,7 @@ const [movies, setMovies] = useState([]);
 	return (
 	
 	<main>
-		<section>
+		<section className="section-01">
 		<SubHeader />
 		{movies && <GridCard movies={movies}/>}
 

@@ -1,6 +1,6 @@
-import React , { useEffect, useState, setState }from 'react';
-import { API_URL , API_KEY, API_URL_POPULAR, IMAGE_URL} from '../../global/variables';
-
+import React, { useState } from 'react';
+import {  IMAGE_URL} from '../../global/variables';
+import { BrowserRouter as Redirect } from 'react-router-dom';
 
 const makeMovieArr = (movies) => {
 
@@ -8,16 +8,20 @@ const makeMovieArr = (movies) => {
         return b.vote_average - a.vote_average;
     })
 
+    movies.length = 12;
+
     return movies.map((movie, i) =>{
         return (
-            <section key={i}>
-                <h1></h1>
+            <section className="movies-container" key={i}>
                 <div className="movie">
-                    <img src={`${IMAGE_URL}w185${movie.poster_path}`} alt={movie.title}></img>
+                    <a href={`/movie/${movie.id}`}>
+                    <img src={`${IMAGE_URL}w185${movie.poster_path}`} alt={movie.title}></img></a>
                     <h2>{movie.title}</h2>
                     <h3>{movie.original_title}</h3>
+                    <div className="movie-released">{movie.release_date}</div>
                     <div className="movie-rating">{movie.vote_average}</div>
                     <div className="movie-overview">{movie.overview}</div>
+                    <button>Login</button>
                 </div>
             </section>
         )
@@ -29,7 +33,11 @@ export const GridCard = (props) => {
     return (
         <div>
             {makeMovieArr(props.movies)}
+
         </div>
     )
 }
+
+
+
 
