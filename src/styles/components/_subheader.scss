@@ -1,0 +1,28 @@
+.movies-filter{
+    padding: 20px;
+}
+.movies-filter ul{
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+
+    li {
+        list-style: none;
+        cursor: pointer;
+        padding: 6px 15px;
+        border-right: 1px solid black;
+    }
+
+    li:last-child {
+        border-right: 0;
+    }
+
+    li:hover,
+    li.active {
+        background-color: blue;
+        color: white;
+    }
+
+    
+}

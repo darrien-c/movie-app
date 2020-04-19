@@ -8,12 +8,19 @@ import SideToggle from '../components/sideToggle/sideToggle';
 import Backdrop from '../components/sideToggle/Backdrop';
 import { API_URL , API_KEY, API_URL_POPULAR, IMAGE_URL} from '../global/variables';
 
+
+//Filters
+import NowPlaying from '../components/filters/NowPlaying';
+import TopRated from '../components/filters/TopRated';
+import Upcoming from '../components/filters/Upcoming';
+
 // Pages
 import About from '../components/About';
 import Home from '../components/Home';
 import Favourites from '../components/Favourites';
 import Individual from '../components/Individual';
 import PageNotFound from '../components/PageNotFound';
+
 
 
 
@@ -35,13 +42,7 @@ class AppRouter extends React.Component {
     backdropClickHandler = () => {
         this.setState({sideToggleOpen: false});
     }
-
-
-   
-
-
-
-
+ 
     render() {
         let sideToggle;
         let backdrop;
@@ -63,10 +64,12 @@ class AppRouter extends React.Component {
                     
                     <Switch>
                         <Route path="/" exact><Home /></Route>
-                        <Route path="/about"><About /></Route>
-                        <Route path="/individual"><Individual /></Route>
-                        <Route path="/favourites"><Favourites /></Route>
-                       
+                        <Route path="/about" exact><About /></Route>
+                        <Route path="/individual" exact><Individual /></Route>
+                        <Route path="/favourites" exact><Favourites /></Route>
+                        <Route path="/nowplaying" exact component={NowPlaying} />
+                        <Route path="/toprated" exact component={TopRated} />
+                        <Route path="/upcoming" exact component={Upcoming} />
                         <Route><PageNotFound /></Route>
                     </Switch>
                     <Footer />

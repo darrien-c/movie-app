@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { API_URL , API_KEY, API_URL_POPULAR, IMAGE_URL} from '../global/variables';
 import { GridCard } from '../components/sections/GridCard';
+import SubHeader from '../components/sections/SubHeader';
+
 
 const Home = (props) => {
 	
@@ -17,7 +19,6 @@ const [movies, setMovies] = useState([]);
 			const data = await response.json();
 			const movies = data.results;
 			setMovies(movies);
-			console.log(movies);
 		}
 		fetchMovies();
 	}, []); 
@@ -26,10 +27,9 @@ const [movies, setMovies] = useState([]);
 	
 	<main>
 		<section className="home-section-01">
-			<h2>Home Page</h2>
+		<SubHeader />
 		{movies && <GridCard movies={movies}/>}
-	
-		
+
 		</section>
 	</main>
 	)

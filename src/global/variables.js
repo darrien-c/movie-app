@@ -21,5 +21,11 @@ export const API_URL      = 'https://api.themoviedb.org/3';
 
 export const API_URL_POPULAR = 'https://api.themoviedb.org/3/movie/popular?api_key=8378ecab4c3b33dc26547ee009cd485e&language=en-US&page=1';
 
+export const API_URL_TOPRATED = 'https://api.themoviedb.org/3/movie/top_rated?api_key=8378ecab4c3b33dc26547ee009cd485e&language=en-US&page=1';
+
+export const API_URL_NOWPLAYING = 'https://api.themoviedb.org/3/movie/now_playing?api_key=8378ecab4c3b33dc26547ee009cd485e&language=en-US&page=1';
+
+export const API_URL_UPCOMING = 'https://api.themoviedb.org/3/movie/upcoming?api_key=8378ecab4c3b33dc26547ee009cd485e&language=en-US&page=1';
+
 export const IMAGE_URL    = 'https://image.tmdb.org/t/p/';
 
