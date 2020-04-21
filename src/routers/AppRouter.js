@@ -18,7 +18,6 @@ import Upcoming from '../components/filters/Upcoming';
 import About from '../components/About';
 import Home from '../components/Home';
 import Favourites from '../components/Favourites';
-import Individual from '../components/Individual';
 import PageNotFound from '../components/PageNotFound';
 import Movie from '../components/sections/Movie';
 
@@ -65,12 +64,12 @@ class AppRouter extends React.Component {
                     <Switch>
                         <Route path="/" exact><Home /></Route>
                         <Route path="/about" exact><About /></Route>
-                        <Route path="/individual" exact><Individual /></Route>
                         <Route path="/favourites" exact><Favourites /></Route>
                         <Route path="/nowplaying" exact component={NowPlaying} />
                         <Route path="/toprated" exact component={TopRated} />
                         <Route path="/upcoming" exact component={Upcoming} />
                         <Route path="/movie/:movieId" exact component={Movie} />
+                        <Route path="/movie/:movieId" exact component={Favourites} />
                         <Route><PageNotFound /></Route>
                     </Switch>
                     <Footer />

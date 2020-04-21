@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import {  IMAGE_URL} from '../../global/variables';
-import { BrowserRouter as Redirect } from 'react-router-dom';
+import { BrowserRouter as Redirect, Link, NavLink, Route } from 'react-router-dom';
+
+
 
 const makeMovieArr = (movies) => {
 
@@ -21,10 +23,11 @@ const makeMovieArr = (movies) => {
                     <div className="movie-released">{movie.release_date}</div>
                     <div className="movie-rating">{movie.vote_average}</div>
                     <div className="movie-overview">{movie.overview}</div>
-                    <button>Login</button>
+                   <button >{movie.id}</button>
                 </div>
             </section>
         )
+        
     })
 }
 
@@ -40,4 +43,29 @@ export const GridCard = (props) => {
 
 
 
+const makeMovie = (movies) => {
 
+    let movie  = JSON.parse(localStorage.getItem('movie', movies));
+    const { id: movieId } = movie;
+
+
+    return movie.map((item, i) => {
+        return (
+        <div key={i}>
+            <h1>Hello</h1>
+            <h1>{item.id}</h1>
+        </div>
+        )}
+    )
+
+
+}
+
+
+export const DisplayMovie = (props) => {
+    return (
+        <div>
+            {makeMovie(props.movies)}
+        </div>
+    )
+}

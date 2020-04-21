@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { API_URL } from '../global/variables';
+import { FavouritesArray, AddToFavourites } from '../components/sections/AddToFavourites';
+import { Movie } from '../components/sections/Movie';
+
+const Favourites = (props) => {
 
 
-const Favourites = () => (
 
-  <main>
-  <section>
-    <h2>Favourites Page</h2>
-    <p>Saepe vitae deserunt cupiditate vel reiciendis adipisci quasi. At, dolore qui, saepe similique id repellat ipsam sapiente repellendus commodi deleniti natus itaque hic temporibus nam nobis tempora enim suscipit quas!</p>
-  </section>
-</main>
 
-)
 
+   return (
+     <div>
+      <h1>Favourites Page</h1>
+      <FavouritesArray />
+     </div>   
+    )
+ 
+
+}
 export default Favourites;
