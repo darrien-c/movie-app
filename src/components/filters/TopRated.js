@@ -16,7 +16,6 @@ const [movies, setMovies] = useState([]);
 			const data = await response.json();
 			const movies = data.results;
 			setMovies(movies);
-			console.log(movies);
 		}
 		fetchMovies();
 	}, []); 

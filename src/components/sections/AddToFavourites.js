@@ -1,87 +1,66 @@
 import React, { useEffect, useState, setState, useReducer } from 'react'
 import {  IMAGE_URL } from '../../global/variables';
+import { setStorage, getStorage } from '../../utilities/storageMaker';
 
-export const AddToFavourites = (props) => {
 
-  /*   const handleAddMovie = () => {
 
-        const [ movie, setMovie ] = useState('');
+const AddToFavourites = (props) => {
 
-        var favMovie = localStorage.setItem('movie', JSON.stringify(props))
+  
+  const [ movie, setMovie ] = useState([{props}]);
 
-    }   */
-
-    function useLocalState(localItem) {
-
-      const [loc, setState] = useState(localStorage.getItem(localItem));
-
-        function setLoc(newItem) {
-          localStorage.setItem(localItem, newItem);
-          setState(newItem);
-        }
-
-      return [loc, setLoc]
-    }
-
-    const [ movie, setMovie ] = useState(props);
-
-    var favMovie = localStorage.setItem('movie', JSON.stringify(props))
-
+  const handleAddMovie = () => {
+      var favMovie = localStorage.setItem('movie', JSON.stringify(props));
+      setStorage(props);
+  }  
+  
     return (
-       /*  <div>
-            <button onClick={handleAddMovie}>Add to Favourites</button>
-        </div> */
         <div>
-   
-        <button onClick={ () => setMovie(favMovie)}>Add to Favourites</button>
-    </div>
+            <button onClick={handleAddMovie}>Add to Favourites</button>
+        </div> 
+      
     )
-}
+} 
+export default AddToFavourites;
 
 
-export const FavouritesArray = (props) => {
+const FavouritesArray = (props) => {     
 
 
+  let storedMovies  = JSON.parse(localStorage.getItem('movie-current-favs')); 
+
+  if(storedMovies == null) storedMovies = [];    
   
-   let [ movies , setFavArray] = useState([]);
-    //localStorage.setItem('movie', JSON.stringify(movies));
-    
+  var results = Object.values(storedMovies);  
 
-    var movieList = [];
-    
-    
-    var storedMovies  = JSON.parse(localStorage.getItem('movie'));  
-    if(storedMovies == null) storedMovies = [];  
+    return results.map((result, i) => {    
+      console.log(result.movie.title)
+      return (    
 
-    var results = Object.values(storedMovies); 
-
-  
-         
-    let totalArray = movieList.push(results);
-  
-
-    console.log(totalArray)
-    console.log(movieList)
-
-     return results.map((result, i) => {
-    
-      return (
-    
         <section key={i}>
           <div className="section-01">    
             <h1>Favourite Page</h1>
-            <h1>{result.title}</h1>
-            <img src={`${IMAGE_URL}w185${result.poster_path}`} alt={result.title}></img>
+            <h1>{result.movie.title}</h1>
+            <img src={`${IMAGE_URL}w185${result.movie.poster_path}`} alt={result.movie.title}></img>
           </div>
         </section>
+        
       )
-    
-    }) 
-    
+    })   
+}
+
+
+
       
-    }
-      
-    
+export const DisplayFavArray = (props) => {
+  return(
+    <div>
+      {FavouritesArray(props.movie)}
+    </div>
+  )
+}
+
+
     
 
     
