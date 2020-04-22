@@ -3,7 +3,7 @@ import { API_URL, API_KEY, IMAGE_URL , STORAGE_FAVOURITE_MOVIE } from '../../glo
 import  AddToFavourites  from '../sections/AddToFavourites'; 
 import  Favourites  from '../Favourites';
 import { setStorage, getStorage } from '../../utilities/storageMaker';
-
+import YourFavourites  from '../sections/AddToFavourites';
 
 const Movie = (props) => {
 
@@ -53,7 +53,7 @@ const Movie = (props) => {
                 </div>
                 <div>
                
-                <AddToFavourites movie={movie} />
+                <AddToFavourites movie={movie} id={movie.id}/>
                     <h1>{movie.title}</h1>
                     <p>{movie.vote_average}</p>
                     <p>{movie.overview}</p>
