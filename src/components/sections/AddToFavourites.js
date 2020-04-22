@@ -20,6 +20,7 @@ const AddToFavourites = (props) => {
         }
         console.log('theres a dupe');
         setError(true);
+        removeFromStorage(sorted_arr);
         return storedArray;
       }
  
