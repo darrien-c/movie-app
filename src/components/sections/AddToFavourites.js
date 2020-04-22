@@ -9,20 +9,20 @@ const AddToFavourites = (props) => {
   const [error, setError] = useState(false);
 
   const handleAddMovie = () => {
-      var favMovie = localStorage.setItem('movie', JSON.stringify(props));
+     // var favMovie = localStorage.setItem('movie', JSON.stringify(props));
       setStorage(props);
 
       let storedArray = JSON.parse(localStorage.getItem('movie-current-favs')); 
       var items = Object.values(storedArray);    
-      var sorted_arr = storedArray.slice().sort();      
+      var sorted_arr = storedArray.slice().sort(); 
+   
       for(var i = 0; i < sorted_arr.length - 1; i++){
-        if(sorted_arr[i + 1] === sorted_arr[i]){      
+        if(sorted_arr[i + 1] === sorted_arr[i + 1]){    
+         // removeFromStorage(sorted_arr);
+          setError(true);   
         }
-        console.log('theres a dupe');
-        setError(true);
-        removeFromStorage(sorted_arr);
-        return storedArray;
-      }
+        console.log('theres a dupe');       
+      }  
  
   }
   
@@ -103,7 +103,7 @@ const FavouritesArray = (props) => {
         <section key={i}>
           <div className="section-01">    
             <h1>Favourite Page</h1>
-            <button onClick={ () => removeFromStorage()}>Remove</button> 
+            <button onClick={ () => removeFromStorage(props)}>Remove</button> 
 
             <h1>{result.movie.title}</h1>
             <img src={`${IMAGE_URL}w185${result.movie.poster_path}`} alt={result.movie.title}></img>
