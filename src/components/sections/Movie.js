@@ -4,6 +4,7 @@ import  AddToFavourites  from '../sections/AddToFavourites';
 import  Favourites  from '../Favourites';
 import { setStorage, getStorage } from '../../utilities/storageMaker';
 import YourFavourites  from '../sections/AddToFavourites';
+import SubHeader from '../sections/SubHeader';
 
 const Movie = (props) => {
 
@@ -31,37 +32,53 @@ const Movie = (props) => {
             
         }, [movie]); 
     
+        
       
     return (
-        <section>
-            <div>
-         {/*        <div>
-                {movie.backdrop_path && (
-                        <img
-                            src={`${IMAGE_URL}original${movie.backdrop_path}`}
-                            alt="movie poster"/>
-                    )}
-                </div> */}
-                <h1>MoviePage</h1>
-                
-                <div>
-                    {movie.poster_path && (
-                        <img
-                            src={`${IMAGE_URL}w300${movie.poster_path}`}
-                            alt="movie poster"/>
-                    )}
-                </div>
-                <div>
-               
-                <AddToFavourites movie={movie} id={movie.id}/>
-                    <h1>{movie.title}</h1>
-                    <p>{movie.vote_average}</p>
-                    <p>{movie.overview}</p>
-                    <p>{movie.release_date}</p>
-                </div>
+        <main>
+            <div className="filter-menu">
+                <SubHeader />
             </div>
-        </section>
-  
+
+            <section className="section-01">  
+   
+                                          
+                  {movie.backdrop_path && (
+                            <img className="poster-backdrop"
+                                src={`${IMAGE_URL}original${movie.backdrop_path}`}
+                                alt="movie poster"/>
+                        )} 
+              
+                     
+                <div className="individual-movie-container">   
+                                 
+                            <div className="individual-movie-info">
+                                <div className="movie-display">
+                                    <div className="solo-poster">
+                                        {movie.poster_path && (
+                                            <img
+                                                src={`${IMAGE_URL}w300${movie.poster_path}`}
+                                                alt="movie poster"/>
+                                        )}
+                                    </div>
+                                </div>
+                                    <div className="solo-titles">
+                                        <h1>{movie.title}</h1>
+                                        <h3>{movie.original_title}</h3>
+                                    </div>
+                
+                                    <div className="solo-group">
+                                        <p className="solo-release">{movie.status}: {movie.release_date}</p>
+                                        <i class="fa fa-star"><span>{movie.vote_average}</span></i>
+                                        <p className="movie-solo-overview">{movie.overview}</p>
+                                        <AddToFavourites movie={movie} id={movie.id}/>
+                                    </div>
+                                 
+                            </div>                      
+                </div>
+               
+            </section>
+        </main>
     )
 }
 

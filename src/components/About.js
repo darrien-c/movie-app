@@ -1,12 +1,29 @@
-import React from 'react';
+import React , { useEffect, useState} from 'react';
+import SubHeader from '../components/sections/SubHeader';
+import { GridCard } from '../components/sections/GridCard';
+import LessProminentLogo from '../tmdb_less-prominate.svg';
 
-const About = () => (
+const About = () => {
+
+
+
+
+	return(
+	
 	<main>
-		<section>
-			<h2>About Page</h2>
-			<p>Saepe vitae deserunt cupiditate vel reiciendis adipisci quasi. At, dolore qui, saepe similique id repellat ipsam sapiente repellendus commodi deleniti natus itaque hic temporibus nam nobis tempora enim suscipit quas!</p>
+		<div className="filter-menu">
+			<SubHeader />
+		</div>
+		<section className="section-01">
+			<div className="about-info">
+				<h1>About</h1>
+				<p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
+				<img className="less-logo" src={LessProminentLogo} alt="TMDB Logo"></img>
+			</div>
+
 		</section>
 	</main>
-);
+	)
+}
 
 export default About;

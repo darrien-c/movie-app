@@ -14,18 +14,17 @@ const makeMovieArr = (movies) => {
 
     return movies.map((movie, i) =>{
         return (
-            <section className="movies-container" key={i}>
-                <div className="movie">
+            <div className="movies-container" key={i}>
+                <div className="movies">
                     <a href={`/movie/${movie.id}`}>
-                    <img src={`${IMAGE_URL}w185${movie.poster_path}`} alt={movie.title}></img></a>
+                    <img className="movie-poster" src={`${IMAGE_URL}w185${movie.poster_path}`} alt={movie.title}></img></a>
                     <h2>{movie.title}</h2>
-                    <h3>{movie.original_title}</h3>
-                    <div className="movie-released">{movie.release_date}</div>
-                    <div className="movie-rating">{movie.vote_average}</div>
-                    <div className="movie-overview">{movie.overview}</div>
-                   <button >{movie.id}</button>
-                </div>
-            </section>
+                    <p className="movie-released">{movie.release_date}</p>
+                    <p className="movie-overview">{movie.overview}</p>
+                   <p><span className="rating-circle">{movie.vote_average}</span></p> 
+                   <a href={`/movie/${movie.id}`} ><span  className="viewmore-btn">View More</span></a> 
+                </div>            
+            </div>
         )
         
     })

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, setState, useReducer } from 'react'
 import {  API_URL, API_KEY, IMAGE_URL } from '../../global/variables';
-import { setStorage, getStorage, removeFromStorage } from '../../utilities/storageMaker';
+import { setStorage, getStorage, removeFromStorage, isItemInStorage } from '../../utilities/storageMaker';
 import Favourites from '../Favourites';
 
 const AddToFavourites = (props) => {
@@ -9,27 +9,32 @@ const AddToFavourites = (props) => {
   const [error, setError] = useState(false);
 
   const handleAddMovie = () => {
-     // var favMovie = localStorage.setItem('movie', JSON.stringify(props));
+     //var favMovie = localStorage.setItem('movie', JSON.stringify(props));
       setStorage(props);
 
+     
       let storedArray = JSON.parse(localStorage.getItem('movie-current-favs')); 
-      var items = Object.values(storedArray);    
-      var sorted_arr = storedArray.slice().sort(); 
-   
-      for(var i = 0; i < sorted_arr.length - 1; i++){
-        if(sorted_arr[i + 1] === sorted_arr[i + 1]){    
-         // removeFromStorage(sorted_arr);
-          setError(true);   
-        }
-        console.log('theres a dupe');       
-      }  
+      const items = Object.values(storedArray);    
+
+
+      items.reduce((unique, item) => {
+        console.log(
+          item,
+          unique,
+          unique.includes(item),
+          unique.includes(item) ? unique : [...unique, item] ,
+        );
+          return unique.includes(item) ? unique : [...unique, item]
+      }, []);
+
+      
  
   }
   
     return (
-        <div>
+        <div className="fav-wrapper">
           {error && <p>Movie has already been added to favourites.</p>}
-            <button onClick={handleAddMovie}>Add to Favourites</button>
+            <button className="fav-button" onClick={ () => handleAddMovie(props)}>Add to Favourites</button>
         </div> 
       
     )
@@ -100,13 +105,13 @@ const FavouritesArray = (props) => {
     return results.map((result, i) => {    
       return (    
 
-        <section key={i}>
-          <div className="section-01">    
-            <h1>Favourite Page</h1>
-            <button onClick={ () => removeFromStorage(props)}>Remove</button> 
-
-            <h1>{result.movie.title}</h1>
-            <img src={`${IMAGE_URL}w185${result.movie.poster_path}`} alt={result.movie.title}></img>
+        <section key={i} className="movies-container">
+          <div className="movies-container">
+              <div className="movies">
+              <h2>{result.movie.title}</h2>
+              <img className="fav-movies" src={`${IMAGE_URL}w185${result.movie.poster_path}`} alt={result.movie.title}></img>
+              <div className="remove-wrapper"><button className="remove-btn" onClick={ () => removeFromStorage()}>Remove</button> </div>
+            </div>
           </div>
         </section>
         

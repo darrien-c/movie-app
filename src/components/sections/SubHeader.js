@@ -7,10 +7,10 @@ const SubHeader = () => {
     return (
         <div className="movies-filter">
            <ul>
-               <li><NavLink to='/'>Popular</NavLink></li>
-               <li><NavLink to='/toprated'>Top Rated</NavLink></li>
-               <li><NavLink to='/nowplaying'>Now Playing</NavLink></li>
-               <li><NavLink to='/upcoming'>Upcoming</NavLink></li>
+           <NavLink to='/'><li className="btn-inverted">Popular</li></NavLink>
+           <NavLink to='/toprated'><li className="btn-inverted">Top Rated</li></NavLink>
+           <NavLink to='/nowplaying'><li className="btn-inverted">Now Playing</li></NavLink>
+            <NavLink to='/upcoming'><li className="btn-inverted">Upcoming</li></NavLink>
            </ul>
         </div>
     )

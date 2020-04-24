@@ -1,0 +1,45 @@
+.footer-wrapper{
+    text-align: center;
+    color: #4f625e;
+}
+
+.footer-container {
+position: relative;
+    p{
+        bottom: 0;
+        position: absolute;
+        height: 100%;
+    }
+}
+
+@media (min-width: 538px) {
+    .footer-wrapper{
+        margin-top: 660px;
+    }
+}
+
+
+@media (min-width: 768px){
+    .footer-wrapper {
+        background-color: #191c1f;
+        display: flex;
+        flex-direction: column;
+        margin-top: -25px;
+        text-align: left;
+    }
+
+    .footer-container {
+        background: #191c1f;
+        width: 157px;
+        margin-bottom: -5000px; /* any large number will do */
+        padding-bottom: 5000px;
+        overflow: hidden;
+    }
+
+    .footer-wrapper{
+        font-size: 14px;
+        width: 157px;
+        text-align: center;
+    }
+
+}

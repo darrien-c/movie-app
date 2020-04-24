@@ -1,35 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap');
 $bgColor: #2B2B31;
 $brandOrange :  #FAB162;
-
+//Sky Blue: #8cbcd0
+//black-grey: #323636
+//emerald blue" #18c3fb
 
 .header-bar {
     position:fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(20, 20, 20, 0.281);
+    background-color: #1a1a1a;
     height: 80px;
+    z-index: 2;
 }
 
 .header-logo {
-    margin-left: 20px;
-}
-
-.header-logo a{
-    color: white;
-    text-decoration: none;
-    text-transform: uppercase;
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 100px;
+    height: auto;
     font-size: 25px;
-    color: #fbfbfb;
-
-    span {
-        color:#FAB162;
-    }
 }
+
 
 
 @media (min-width: 769px) {
     .header-logo {
         margin-left: 0;
+        position: relative;
     }
+
 }

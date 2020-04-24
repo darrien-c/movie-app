@@ -24,9 +24,12 @@ const [movies, setMovies] = useState([]);
 	return (
 	
 	<main>
+		<div className="filter-menu">
+			<SubHeader />
+		</div>
 		<section className="section-01">
-		<SubHeader />
-		{movies && <GridCard movies={movies}/>}
+			<h1>Popular</h1>		
+			{movies && <GridCard movies={movies}/>}	
 		</section>
 	</main>
 	)

@@ -9,8 +9,10 @@ export const isItemInStorage = (newItem) => {
     if(currentMovies.find(currentMovie => currentMovie.id === newItem.id)){
         return true;
     }
+
     return currentMovies;
 }
+
 export const setStorage = (newFavMovie, storageItem = STORAGE_FAVOURITE_MOVIES) => {
     if (storageItem === STORAGE_FAVOURITE_MOVIES){
         let arrayOfFavMovies;
@@ -18,7 +20,10 @@ export const setStorage = (newFavMovie, storageItem = STORAGE_FAVOURITE_MOVIES) 
         arrayOfFavMovies.push(newFavMovie);
         localStorage.setItem(storageItem, JSON.stringify(arrayOfFavMovies));
     }
+
 }
+
+
 export const getStorage = (storageItem = STORAGE_FAVOURITE_MOVIES) => {
     let item = localStorage.getItem(storageItem);
     if(item){

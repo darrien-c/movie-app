@@ -2,13 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Nav from './Nav';
 import HamburgerToggle from '../components/sideToggle/hamburgerToggle';
-
+import logo from '../tmdb.svg';
 
 const Header = (props) => (
-  /* toolbar = header-bar
-      toolbar__navigation = navbar
-      toolbar__logo = header-logo
-       toolbar_navigation-items = navbar-items*/
 
     <header className="header-bar">
       <nav className="navbar">
@@ -17,7 +13,7 @@ const Header = (props) => (
         </div>
 
         <div className="header-logo">
-          <NavLink to = {'/'}><h1>Movie<span>Go</span></h1></NavLink>
+          <NavLink to = {'/'}><img src={logo} /></NavLink>
         </div>
           <Nav />
       </nav>

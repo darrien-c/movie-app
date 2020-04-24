@@ -6,7 +6,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import SideToggle from '../components/sideToggle/sideToggle';
 import Backdrop from '../components/sideToggle/Backdrop';
-
+import logo from '../tmdb.svg';
 
 
 //Filters
@@ -53,6 +53,7 @@ class AppRouter extends React.Component {
         };
    
         return (
+            
             <Router>
                 <div className="wrapper">
                     <Header sideToggleClickHandler={this.sideToggleClickHandler}/>
@@ -65,16 +66,20 @@ class AppRouter extends React.Component {
                         <Route path="/" exact><Home /></Route>
                         <Route path="/about" exact><About /></Route>
                         <Route path="/favourites" exact><Favourites /></Route>
-                        <Route path="/nowplaying" exact component={NowPlaying} />
-                        <Route path="/toprated" exact component={TopRated} />
-                        <Route path="/upcoming" exact component={Upcoming} />
+                        <Route path="/nowplaying"  component={NowPlaying} />
+                        <Route path="/toprated"  component={TopRated} />
+                        <Route path="/upcoming"  component={Upcoming} />
                         <Route path="/movie/:movieId" exact component={Movie} />
                         <Route path="/movie/:movieId" exact component={Favourites} />
                         <Route><PageNotFound /></Route>
                     </Switch>
-                    <Footer />
                 </div>
+          
+                <Footer></Footer>
             </Router>
+            
+ 
+                   
         )
     }
 }

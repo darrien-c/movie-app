@@ -1,0 +1,113 @@
+.poster-backdrop {
+    display: none;
+}
+
+
+
+.individual-movie-container {
+    //padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: CENTER;
+
+    h1, h3, p {
+        padding: 0;
+        margin: 0;
+        margin-top: 10px;
+    }
+    h3 {
+        color: white;
+        margin-bottom: 10px;
+    }
+}
+
+.individual-movie-info {
+    p {
+        padding: 0;
+        margin: 0;
+        margin-top: 10px;
+    }
+
+    h3, p {
+        color: white;
+    }
+
+    p {
+        text-align: left;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .fa-star {
+        color: rgb(251, 255, 0);
+        margin: 0 11px 0 0;
+    }
+
+    .solo-release {
+        color: #45433E;
+        font-weight: 400;
+        font-size: 14px;
+        font-style: italic;
+        text-align: center;
+        margin-top: 0;
+        padding: 0;
+    }
+
+}
+
+
+@media (min-width: 1068px) {
+
+    .poster-backdrop {
+        display: block;
+        filter: grayscale(60%) brightness(30%) drop-shadow(0 0 0.75rem rgb(3, 3, 3));
+        position: absolute;
+        z-index: -1;
+    }
+
+    .individual-movie-info{
+        margin-top: 50px;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    .solo-group {
+        margin-left: -60px;
+        margin-top: 100px;
+        position: relative;
+
+        .solo-release {
+            position: absolute;
+            left: 0;
+            margin-left: 5px;
+            margin-top: -30px;
+        }
+
+        .fa-star{
+            padding: 20px;
+            position: absolute;
+            left: 0;
+            margin-left: -10px;
+            margin-top: 30px;
+
+            span {
+                padding-left: 8px;
+            }
+        }
+
+        .movie-solo-overview {
+            margin-top: 80px;
+            max-width: 550px;
+        }
+    }
+
+    .solo-titles {
+        margin-top: -12px;
+        margin-left: 40px;
+    }
+
+    .solo-poster{
+        width: 300px;
+    }
+}
