@@ -222,7 +222,7 @@
 }
 
 .remove-btn {
-
+    margin-bottom: 60px;
     font-size: 4vmin;
     appearance: none;
     background: linear-gradient(to bottom, rgb(1, 244, 232), #4cb69f);
@@ -302,22 +302,117 @@
     }
   }
 
+.remove-all-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin-left: 35px;
+  margin-bottom: 50px;
+  }
+  
+  .remove-all-btn {
+    margin-bottom: 20px;
+    font-size: 4vmin;
+    appearance: none;
+    background: linear-gradient(to bottom, rgb(255, 62, 245), #b64cad);
+    border: none;
+    color: #FFF;
+    border-radius: 2em;
+    //padding: .6em 1.5em;
+    padding: 10px 15px;
+    overflow: hidden;
+    user-select: none;
+    cursor: pointer;
+    z-index: 1;
+    box-shadow: 0 0 0.2em rgba(white, .2);
+    transition: transform .1s cubic-bezier(.5, 0, .5, 1),
+    box-shadow .2s;
+    
+    &:hover {
+      box-shadow: 0 0 0.5em rgba(white, .3);
+    }
+  
+    outline: none;
+  
+    &:active {
+      transform: scale(0.8) translateY(10%);
+      transition-timing-function: cubic-bezier(.5, 0, .5, 1);
+    }
+  }
+  
+  .treat {
+    --scale-x: 0;
+    --scale-y: 0;
+    pointer-events: none;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: calc(50% - .5rem);
+    border-radius: 50%;
+    width: 1em;
+    height: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5vmin;
+    transform: 
+      translate(
+        calc( var(--x) * 1px ), 
+        calc( var(--y) * 1px )
+      ) 
+      translate(-50%, -50%);
+    pointer-events: none;
+    animation: 
+      treat-enter .1s ease-in backwards, 
+      treat-exit 300ms linear 
+      calc( (var(--lifetime, 3000) * 1ms) - 300ms) 
+      forwards;
+  
+    @keyframes treat-enter {
+      from {
+        opacity: 0;
+      }
+    }
+    @keyframes treat-exit {
+      to {
+        opacity: 0;
+      }
+    }
+    
+    .inner {
+      animation: inner-rotate .6s linear infinite;
+      transform: rotate( 
+        calc(-1turn * var(--direction) )
+      ); 
+      @keyframes inner-rotate {
+        to { 
+          transform: none;
+        } 
+      }
+    }
+  }
+
+
+  @media (min-width: 550px) {
+
+    .fav-button {
+		  font-size: 2.4vmin;
+    }
+    
+    .remove-btn {
+      margin-bottom: 60px;
+      font-size: 2vmin;
+    }
+
+    .remove-all-btn {
+      font-size: 2vmin;
+    }
+  }
 
   
-
-
-
   @media (min-width: 1068px) {
 
 	  .fav-button {
-		font-size: 2vmin;
+		  font-size: 2vmin;
 	  }
 
-  }
-
-  @media (min-width: 550px) {
-    .remove-btn {
-
-      font-size: 2.7vmin;
-    }
   }

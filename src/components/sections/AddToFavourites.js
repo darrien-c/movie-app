@@ -9,19 +9,42 @@ const AddToFavourites = (props) => {
   const [error, setError] = useState(false);
 
   const handleAddMovie = () => {
-     //var favMovie = localStorage.setItem('movie', JSON.stringify(props));
       setStorage(props);
-
-     
- /*      let storedArray = JSON.parse(localStorage.getItem('movie-current-favs')); 
-      const items = Object.values(storedArray);    
- */
   }
+
+  const hasDuplicates = (props) => {
+    let newArray  = JSON.parse(localStorage.getItem("movie-current-favs"));
+
+    const scan_arr = [];
+
+    const scan = ( id, value = undefined) => {
+      return { id: id, value: value};
+    };
+
+    const update = item => {
+      item.count = item.count || 1;
+
+      const existingItem = scan_arr.find( i => i.id === item.id);
+
+      if( existingItem ) {
+        setError(true);
+        console.log('exist');
+      }else {
+        console.log('not exist');
+      }
+    };
+
+
+
+
+    } 
+
   
     return (
         <div className="fav-wrapper">
-          {error && <p>Movie has already been added to favourites.</p>}
-            <button className="fav-button" onClick={ () => handleAddMovie(props)}>Add to Favourites</button>
+
+            <button className="fav-button" onClick={ () => {handleAddMovie(props); hasDuplicates(props)}}>Add to Favourites</button>
+            {error && <p className="text-popup">Movie has already been added to favourites.</p>}
         </div> 
       
     )
@@ -29,16 +52,12 @@ const AddToFavourites = (props) => {
 export default AddToFavourites;
 
 
-const findMovie = (props) => {
+export const removeOneMovie = (props) => {
 
-console.log(props);
- let items = getStorage();
- let newArray  = JSON.parse(localStorage.getItem("movie-current-favs"));
- newArray.splice(props, 1);
-
-
-  console.log(newArray);
+  let newArray  = JSON.parse(localStorage.getItem("movie-current-favs"));
+  newArray.splice(props, 1);
   localStorage.setItem("movie-current-favs", JSON.stringify(newArray));
+
 }
 
 
@@ -49,24 +68,22 @@ const FavouritesArray = (props) => {
   if(storedMovies == null) storedMovies = [];    
   
   let results = Object.values(storedMovies);  
-  let favID = Object.keys(storedMovies);
+  let favKey = Object.keys(storedMovies);
 
-    return results.map((result, i) => {    
+    return results.map((result, i) => {  
+     
       return (    
 
-        <section key={i} className="movies-container">
-          <div className="movies-container">
-              <div className="movies">
+          <div key={i} className="movies-box">
               <h2>{result.movie.title}</h2>
               <img className="fav-movies" src={`${IMAGE_URL}w185${result.movie.poster_path}`} alt={result.movie.title}></img>
+            
               <div className="remove-wrapper">
-                <button className="remove-btn" onClick={ () => removeFromStorage(result.movie.id)}>Remove</button>  
-                <button onClick={ () => findMovie(result)}>Find movie</button> 
+                <button className="remove-btn" onClick={ () => removeOneMovie(result)}>Remove</button> 
               </div>
-            </div>
           </div>
-        </section>
-        
+          
+          
       )
     })   
 }

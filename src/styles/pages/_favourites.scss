@@ -1,3 +1,18 @@
+.fav-movies-container {
+    text-align: center;
+    padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+    height: auto;   
+
+    h2{
+        padding-bottom: 30px;
+    }
+
+
+}
+
 .fav-movies {
     box-shadow: 0 5px 5px rgba(0,0,0,0.16), 0 5px 5px rgba(0,0,0,0.23);
 }
@@ -8,4 +23,25 @@ h2 {
 .oops-intro {
     font-weight: 700;
     color: white;
+}
+
+.text-popup p{
+    padding: 0;
+    margin: 0;
+}
+
+
+@media (min-width: 560px) {
+    .fav-movies-container {
+        display: flex;
+        flex-direction: row;
+        margin-top: -20px;
+      }
+
+      .movies-box {
+          margin: 30px;
+          padding: 20px;
+      }
+
+
 }

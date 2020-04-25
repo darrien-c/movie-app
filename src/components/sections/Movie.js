@@ -33,6 +33,13 @@ const Movie = (props) => {
         }, [movie]); 
     
         
+
+        
+   const hasDuplicates = (arr) => {
+        arr.some((item, index) => arr.indexOf(item) !== index);
+        console.log('workingyet');
+    } 
+
       
     return (
         <main>

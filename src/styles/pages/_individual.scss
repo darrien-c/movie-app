@@ -45,7 +45,7 @@
     }
 
     .solo-release {
-        color: #45433E;
+        color: rgb(141, 141, 141);
         font-weight: 400;
         font-size: 14px;
         font-style: italic;
@@ -64,50 +64,50 @@
         filter: grayscale(60%) brightness(30%) drop-shadow(0 0 0.75rem rgb(3, 3, 3));
         position: absolute;
         z-index: -1;
+        margin-top: -10px;
+        max-width: inherit;
+        margin-left: -30px;
     }
 
-    .individual-movie-info{
-        margin-top: 50px;
-        display: flex;
-        flex-wrap: nowrap;
+    .individual-movie-container {
+        margin-top: 150px;
     }
 
-    .solo-group {
-        margin-left: -60px;
-        margin-top: 100px;
-        position: relative;
+    .individual-movie-info {
+        display: grid;
+        grid-template-columns: 1.5fr 1.5fr 0.5fr;
 
         .solo-release {
-            position: absolute;
-            left: 0;
-            margin-left: 5px;
-            margin-top: -30px;
+            padding-top: 30px;
+            text-align: left;
         }
 
-        .fa-star{
-            padding: 20px;
-            position: absolute;
-            left: 0;
-            margin-left: -10px;
-            margin-top: 30px;
-
-            span {
-                padding-left: 8px;
+        .fa-star {
+            margin-left: 8px;
+            padding-top: 30px;
+            padding-bottom: 15px;
+            span{
+                margin-left: 15px;
+                font-family: 'Nunito Sans', sans-serif;
             }
         }
+    }
 
-        .movie-solo-overview {
-            margin-top: 80px;
-            max-width: 550px;
-        }
+    .solo-group,
+    .solo-titles{
+        text-align: left;
+        grid-column: 2 / 3;
+        grid-row:  1;
     }
 
     .solo-titles {
-        margin-top: -12px;
-        margin-left: 40px;
+        padding-bottom: 20px;
     }
 
-    .solo-poster{
-        width: 300px;
+ 
+
+    .solo-group {
+        display: block;
+        margin-top: 120px;
     }
-}
+} 
