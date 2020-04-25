@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { API_URL, API_KEY, IMAGE_URL , STORAGE_FAVOURITE_MOVIE } from '../../global/variables';
-import  AddToFavourites  from '../sections/AddToFavourites'; 
+import  AddToFavourites  from './AddToFavourites'; 
 import  Favourites  from '../Favourites';
 import { setStorage, getStorage } from '../../utilities/storageMaker';
-import YourFavourites  from '../sections/AddToFavourites';
-import SubHeader from '../sections/SubHeader';
+import YourFavourites  from './AddToFavourites';
+import SubHeader from './SubHeader';
 
 const Movie = (props) => {
 
@@ -69,7 +69,7 @@ const Movie = (props) => {
                 
                                     <div className="solo-group">
                                         <p className="solo-release">{movie.status}: {movie.release_date}</p>
-                                        <i class="fa fa-star"><span>{movie.vote_average}</span></i>
+                                        <i className="fa fa-star"><span>{movie.vote_average}</span></i>
                                         <p className="movie-solo-overview">{movie.overview}</p>
                                         <AddToFavourites movie={movie} id={movie.id}/>
                                     </div>

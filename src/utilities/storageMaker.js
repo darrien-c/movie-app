@@ -43,5 +43,6 @@ export const removeFromStorage = (movie, storageItem = STORAGE_FAVOURITE_MOVIES)
     items.splice(indexOfItemToRemove, 1);
     let itemsForStorage = JSON.stringify(items);
     localStorage.setItem(storageItem, itemsForStorage);
+    //localStorage.removeItem(storageItem); this line deletes all
     return items;
 } 

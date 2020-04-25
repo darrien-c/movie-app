@@ -1,30 +1,35 @@
 import React, { useEffect, useState } from 'react';
-import { API_URL, API_KEY } from '../global/variables';
-import { DisplayFavArray, FavouritesArray, YourFavourites } from '../components/sections/AddToFavourites';
-import { Movie } from '../components/sections/Movie';
-import { setStorage, getStorage, removeFromStorage } from '../utilities/storageMaker';
+import { DisplayFavArray } from '../components/sections/AddToFavourites';
 import SubHeader from './sections/SubHeader';
 
 
 
-class Favourites extends React.Component {
-
+const Favourites = (props) => {
    
-       
-render() {
+   const displayFavouritedMovies = () => {
+      let favMovies = localStorage.getItem('movie-current-favs');
+
+      if( favMovies === '[]') {
+         return(           
+            <h2><span className="oops-intro">Oops!</span> You don't have any favourite movies!</h2>
+         );
+      }
+   }
+   
+
+
    return (
       <main>
          <div className="filter-menu">
             <SubHeader />
          </div>
          <div className="section-01">
-            <h1>Favourites Page</h1>
+            <h1>Favourites</h1>
+            { displayFavouritedMovies() }
+           
             <DisplayFavArray/>
          </div> 
      </main>  
-    )
-   }
-   
-
+    ) 
 }
 export default Favourites;

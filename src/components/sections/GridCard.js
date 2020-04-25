@@ -22,7 +22,7 @@ const makeMovieArr = (movies) => {
                     <p className="movie-released">{movie.release_date}</p>
                     <p className="movie-overview">{movie.overview}</p>
                    <p><span className="rating-circle">{movie.vote_average}</span></p> 
-                   <a href={`/movie/${movie.id}`} ><span  className="viewmore-btn">View More</span></a> 
+                   <span  className="viewmore-btn"><a href={`/movie/${movie.id}`} >View More</a></span>
                 </div>            
             </div>
         )

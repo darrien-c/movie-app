@@ -13,22 +13,9 @@ const AddToFavourites = (props) => {
       setStorage(props);
 
      
-      let storedArray = JSON.parse(localStorage.getItem('movie-current-favs')); 
+ /*      let storedArray = JSON.parse(localStorage.getItem('movie-current-favs')); 
       const items = Object.values(storedArray);    
-
-
-      items.reduce((unique, item) => {
-        console.log(
-          item,
-          unique,
-          unique.includes(item),
-          unique.includes(item) ? unique : [...unique, item] ,
-        );
-          return unique.includes(item) ? unique : [...unique, item]
-      }, []);
-
-      
- 
+ */
   }
   
     return (
@@ -42,56 +29,17 @@ const AddToFavourites = (props) => {
 export default AddToFavourites;
 
 
+const findMovie = (props) => {
+
+console.log(props);
+ let items = getStorage();
+ let newArray  = JSON.parse(localStorage.getItem("movie-current-favs"));
+ newArray.splice(props, 1);
 
 
-/* const YourFavourites = (props) => {
-
-  const [movies, setFavourites] = useState(getStorage());
-  const [moviesNames, setFavouriteNames] = useState(getStorage());
-  const [FavData, setFavData] = useState([]);
-
-
-const handleRemoveMovie = (movie) => {
-
-
-    let storedArray = JSON.parse(localStorage.getItem('movie-current-favs')); 
-    
-    const updatedFavArray = removeFromStorage(movie);
-
-    setFavourites(updatedFavArray);
-    setFavouriteNames(updatedFavArray.map(movieObj => movieObj.movie));
-
-    const newFavArr = [...FavData];
-    const isFav = (current) => current.movie === movie;
-    let indexOfItemToRemove = newFavArr.findIndex(isFav);
-    newFavArr.splice(indexOfItemToRemove, 1);
-    setFavData(newFavArr);
- }
-
-  const movieId = props.match.params.movieId;
-
-    useEffect(() => {
-      if(Array.isArray(movies) && movies.length > 0) {
-
-        const newFavArr = [];
-        const fetchData = async () => {
-          for(let i = 0; i < movies.length; i++){
-            const res = await fetch(`${API_URL}movie/${movieId}?api_key=${API_KEY}`);
-            let data = await res.json();
-            newFavArr.push(data.movies[i]);
-          }
-          setFavData(newFavArr);
-        }
-        fetchData();
-      }   
-
-  }, [movies])
-
-  return (
-  <button onClick = { () => handleRemoveMovie()}></button>
-  )
-}  */
-
+  console.log(newArray);
+  localStorage.setItem("movie-current-favs", JSON.stringify(newArray));
+}
 
 
 const FavouritesArray = (props) => {     
@@ -100,7 +48,8 @@ const FavouritesArray = (props) => {
   
   if(storedMovies == null) storedMovies = [];    
   
-  var results = Object.values(storedMovies);  
+  let results = Object.values(storedMovies);  
+  let favID = Object.keys(storedMovies);
 
     return results.map((result, i) => {    
       return (    
@@ -110,7 +59,10 @@ const FavouritesArray = (props) => {
               <div className="movies">
               <h2>{result.movie.title}</h2>
               <img className="fav-movies" src={`${IMAGE_URL}w185${result.movie.poster_path}`} alt={result.movie.title}></img>
-              <div className="remove-wrapper"><button className="remove-btn" onClick={ () => removeFromStorage()}>Remove</button> </div>
+              <div className="remove-wrapper">
+                <button className="remove-btn" onClick={ () => removeFromStorage(result.movie.id)}>Remove</button>  
+                <button onClick={ () => findMovie(result)}>Find movie</button> 
+              </div>
             </div>
           </div>
         </section>
