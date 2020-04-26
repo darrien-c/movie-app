@@ -29,4 +29,4 @@ export const API_URL_UPCOMING = 'https://api.themoviedb.org/3/movie/upcoming?api
 
 export const IMAGE_URL    = 'https://image.tmdb.org/t/p/';
 
-export const STORAGE_FAVOURITE_MOVIES = 'movie-current-favs';
+export const STORAGE_FAVOURITE_MOVIES = 'favs';

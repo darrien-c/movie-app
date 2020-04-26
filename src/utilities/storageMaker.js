@@ -5,9 +5,11 @@ export const isItemInStorage = (newItem) => {
     let currentMovies = getStorage();
     if(!currentMovies){
         return [];
-    }
+    } 
     if(currentMovies.find(currentMovie => currentMovie.id === newItem.id)){
         return true;
+    }else {
+        return -1;
     }
 
     return currentMovies;
@@ -36,7 +38,7 @@ export const getStorage = (storageItem = STORAGE_FAVOURITE_MOVIES) => {
     } 
 }
 
-export const removeFromStorage = (movie, storageItem = STORAGE_FAVOURITE_MOVIES) => {
+export const removeAllFromStorage = (movie, storageItem = STORAGE_FAVOURITE_MOVIES) => {
     let items = getStorage();
     const isFavourite = (current) => current.movie === movie;
     let indexOfItemToRemove = items.findIndex(isFavourite);
@@ -46,3 +48,14 @@ export const removeFromStorage = (movie, storageItem = STORAGE_FAVOURITE_MOVIES)
     localStorage.removeItem(storageItem); //this line makes remove all
     return items;
 } 
+
+export const removeOneFromStorage = (movie, storageItem = STORAGE_FAVOURITE_MOVIES) => {
+    let items = getStorage();
+    const isFavourite = (current) => current.movie === movie;
+    let indexOfItemToRemove = items.findIndex(isFavourite);
+    items.splice(indexOfItemToRemove, 1);
+    let itemsForStorage = JSON.stringify(items);
+    localStorage.setItem(storageItem, itemsForStorage);
+    return items;
+} 
+

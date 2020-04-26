@@ -1,22 +1,20 @@
 import React, { useState } from 'react';
-import { DisplayFavArray , removeOneMovie} from '../components/sections/AddToFavourites';
 import SubHeader from './sections/SubHeader';
-import { removeFromStorage } from '../utilities/storageMaker';
+import { removeAllFromStorage } from '../utilities/storageMaker';
 import { IMAGE_URL } from '../global/variables';
 
 
 const Favourites = (props) => {
-
    
-   const [ favStorage, setFavStorage ] = useState(false);
-   let favMovies = localStorage.getItem('movie-current-favs');
 
+   const [ favStorage, setFavStorage ] = useState(false);
+   let favMovies = localStorage.getItem('favs');
+   
    
    const displayFavouritedMovies = () => {
-      let favMovies = localStorage.getItem('movie-current-favs');
+      let favMovies = localStorage.getItem('favs');
 
       if( favMovies === '[]' || favMovies === null) {
-        // setFavStorage(true);
          return(           
             <h2><span className="oops-intro">Oops!</span> You don't have any favourite movies!</h2>
          );
@@ -27,24 +25,19 @@ const Favourites = (props) => {
 
    const FavouritesArray = (props) => {     
 
-      let storedMovies  = JSON.parse(localStorage.getItem('movie-current-favs')); 
-      
-      if(storedMovies == null) storedMovies = [];    
-      
+      let storedMovies  = JSON.parse(localStorage.getItem('favs'));       
+      if(storedMovies == null) storedMovies = [];          
       let results = Object.values(storedMovies);  
       let favKey = Object.keys(storedMovies);
     
         return results.map((result, i) => {  
-
           return (    
               <div key={i} className="movies-box">
                   <h2>{/* {result.movie.title} */}</h2>
                   <a href={`/movie/${result.movie.id}`}><img className="fav-movies" src={`${IMAGE_URL}w185${result.movie.poster_path}`} alt={result.movie.title}></img></a>
                   <br />
                   <a href={`/movie/${result.movie.id}`} > <button className="viewmore-btn fav-readmore-btn">Read more<i className="fas fa-arrow-right arrow"></i></button></a>
-              </div>
-              
-              
+              </div>                           
           )
         })   
     }
@@ -58,16 +51,15 @@ const Favourites = (props) => {
          <div className="section-01">
             <h1>Favourites</h1>
             <div className="remove-all-wrapper" >
-                  <button className="remove-all-btn" onClick={ () => removeFromStorage()}>Remove All Favourites</button> 
+                  <button className="remove-all-btn" onClick={ () => removeAllFromStorage()}>Remove All Favourites</button> 
             </div>
 
             { displayFavouritedMovies() }
 
             <div className="fav-movies-wrapper">
                <div  className="fav-movies-container">
-               {/*  <DisplayFavArray/> */}
 
-               {FavouritesArray()}
+               { FavouritesArray() }
 
                </div>
             </div>

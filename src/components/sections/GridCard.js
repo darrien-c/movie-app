@@ -46,7 +46,7 @@ export const GridCard = (props) => {
 
 const makeMovie = (movies) => {
 
-    let movie  = JSON.parse(localStorage.getItem('movie', movies));
+    let movie  = JSON.parse(localStorage.getItem('favs', movies));
     const { id: movieId } = movie;
 
 
