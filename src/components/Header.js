@@ -13,7 +13,7 @@ const Header = (props) => (
         </div>
 
         <div className="header-logo">
-          <NavLink to = {'/'}><img  crossOrigin="anonymous" src={logo} /></NavLink>
+          <NavLink to = {'/'}><img  src={logo} /></NavLink>
         </div>
           <Nav />
       </nav>

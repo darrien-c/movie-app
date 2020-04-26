@@ -1,3 +1,14 @@
+$button-colour: #009ED8;
+$button-text: #ffffff;
+$regular-text: #333;
+$button-tint: fadeout(#000, 90%);
+$background: #303036;
+
+.fav-readmore-btn {
+  margin-top: 35px;
+  margin-bottom: 55px;
+}
+
 .rating-circle {
 	font-size: 14px;
 	letter-spacing: 0.07em;
@@ -5,9 +16,9 @@
 	line-height: 24px;
 	color: #ffffff;
 	text-shadow: 0px 1px 3px #000060b9 ;
-    position: absolute;
-    background: #ffc078;
-    border-radius: 30px;
+  position: absolute;
+  background: #ffc078;
+  border-radius: 30px;
 	box-shadow: 0px 1px 3px #000060b9 ;
 	z-index: 1;
 	top: 0;
@@ -18,114 +29,84 @@
 
 
     span {
-		display: inline-block;
-		padding: 16px 20px;
-		border-radius: 10px;
-		position: relative;
-		z-index: 2;
-		will-change: transform, filter;
-		transform-style: preserve-3d;
-        transition: all 0.3s ease-out;
+      display: inline-block;
+      padding: 16px 20px;
+      border-radius: 10px;
+      position: relative;
+      z-index: 2;
+      will-change: transform, filter;
+      transform-style: preserve-3d;
+      transition: all 0.3s ease-out;
     }    
 
 }
 
-//////////////// view more btn
+//----- View more btn ---
 
-/* .viewmore-btn {
-	//font-size: 11px;
-	letter-spacing: 0.07em;
-	text-transform: uppercase;
-	line-height: 24px;
-	color: #5f5f5f;
-    position: absolute;
-    background: #fdff8f;
-    border-radius: 30px;
-	box-shadow: 0px 1px 2px #000060b9 ;
-	z-index: 1;
-	top: 0;
-	padding: 6px;
-	width: 36px;
-	text-align: center;
-    
-    &:before {
-		content: '';
-		display: inline-block;
-		height: 40px;
+.viewmore-btn {
+  display: inline-block;
+	position: relative;
+	padding: .8em 1.4em;
+	padding-right: 2.7em;
+  background: #FE5F55;
+  min-width: 12em;
+  border: none;
+  border-radius: 10px;
+	color: white;
+  transition: .2s;
+  cursor: pointer;
+  a{
+    text-decoration: none;
+    color: white;
+  }
+
+	&:before,
+	&:after {
 		position: absolute;
-		bottom: -1px;
-		left: 10px;
-		right: 10px;
-		z-index: -1;
-		border-radius: 2em;
-		filter: blur(14px) brightness(0.9);
-		transform-style: preserve-3d;
-        transition: all 0.3s ease-out;
-        
-    }
-    
-	a {
-        text-decoration: none;
-        color: #ffffff;
-
-        &:hover,
-        &:focus,
-        &:active {
-          text-decoration: none;
-      }
-    }
-    
-    &{
-        text-shadow: 0px 0px 1px #BF4C28;
-    }
-
-    &:before {
-		content: '';
-		display: inline-block;
-		height: 40px;
-		position: absolute;
-		bottom: -1px;
-		left: 10px;
-		right: 10px;
-		z-index: -1;
-		border-radius: 2em;
-		filter: blur(14px) brightness(0.9);
-		transform-style: preserve-3d;
-		transition: all 0.3s ease-out;
-    }
-    span {
-		display: inline-block;
-		padding: 16px 20px;
-		border-radius: 10px;
-		position: relative;
-		z-index: 2;
-		will-change: transform, filter;
-		transform-style: preserve-3d;
-        transition: all 0.3s ease-out;
-    }
-    
-    &:focus{
-		color: #ffffff;
-    }
-    
-	&:hover {
-        color: #ffffff;
-        transition: all 0.3s ease-out;
-        box-shadow: none;
-        background: rgb(219, 90, 4);
-		span {
-            
-			filter: brightness(.9) contrast(1.2);
-            transform: scale(0.96);
-		}
-		&:before {
-			bottom: 3px;
-			filter: blur(1px) brightness(10.8);
-        }
-        
-        
+		top: 0;
+		bottom: 0;
+		right: 0;
+		padding-top: inherit;
+		padding-bottom: inherit;
+		width: 2.8em;
+		font-family: 'FontAwesome', sans-serif;
+		font-size: 1.2em;
+		text-align: center;
+		
+		transition: .2s;
+		transform-origin: 50% 60%;
 	}
-} */
+	&:before {
+		background: #FE5F55;
+	}
+	&:hover {
+		background: darken(#FE5F55, 10%);
+	}
+	&:active,
+	&:focus {
+		background: darken(#FE5F55, 30%);
+		outline: none;
+  }
+  
+  
+	.arrow {
+    margin-left: 30px;
+    margin-right: -30px; 
+
+    &:hover {
+      background: darken(#FE5F55, 10%);
+    }
+    &:active,
+    &:focus {
+      background: darken(#FE5F55, 30%);
+    }
+
+  }
+  
+} 
+ 
+
+// ---- Add Favourite Button ----
 
 .fav-wrapper {
 	margin-top: 50px;
@@ -148,6 +129,11 @@
     box-shadow: 0 0 1em rgba(white, .2);
     transition: transform .1s cubic-bezier(.5, 0, .5, 1),
     box-shadow .2s;
+
+    i {
+      padding: 5px;
+      margin-left: 5px;
+    }
     
     &:hover {
       box-shadow: 0 0 2em rgba(white, .3);
@@ -214,7 +200,7 @@
   }
 
 
-  //--- Remove Button 
+// ---- Remove Favourite Button ----
 
 .remove-wrapper {
 	text-align: center;

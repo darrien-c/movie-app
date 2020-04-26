@@ -2,62 +2,60 @@ import React, { useEffect, useState, setState, useReducer } from 'react'
 import {  API_URL, API_KEY, IMAGE_URL } from '../../global/variables';
 import { setStorage, getStorage, removeFromStorage, isItemInStorage } from '../../utilities/storageMaker';
 import Favourites from '../Favourites';
+import Movie from './Movie';
 
 const AddToFavourites = (props) => {
+
+  let favouritesArray = getStorage('movie-current-favs');
   
-  const [ movie, setMovie ] = useState([{props}]);
   const [error, setError] = useState(false);
+  const [favIndexNumber, setFavIndexNumber] = useState(-1);
+  const[result, setResult] = useState(favouritesArray);
+
+
 
   const handleAddMovie = () => {
       setStorage(props);
+      let favsFromStorage = getStorage();
+      favsFromStorage.push(result);
+      setFavIndexNumber(favsFromStorage.length - 1);
   }
 
-  const hasDuplicates = (props) => {
-    let newArray  = JSON.parse(localStorage.getItem("movie-current-favs"));
+     
+  const handleRemoveFromFavourites = () => {
 
-    const scan_arr = [];
+    removeFromStorage(favIndexNumber);
+    setFavIndexNumber(-1); 
+}
 
-    const scan = ( id, value = undefined) => {
-      return { id: id, value: value};
-    };
-
-    const update = item => {
-      item.count = item.count || 1;
-
-      const existingItem = scan_arr.find( i => i.id === item.id);
-
-      if( existingItem ) {
-        setError(true);
-        console.log('exist');
-      }else {
-        console.log('not exist');
-      }
-    };
-
-
-
-
-    } 
-
-  
     return (
         <div className="fav-wrapper">
+         {/*    {error && <p className="text-popup">Movie has already been added to favourites.</p>} */}
 
-            <button className="fav-button" onClick={ () => {handleAddMovie(props); hasDuplicates(props)}}>Add to Favourites</button>
-            {error && <p className="text-popup">Movie has already been added to favourites.</p>}
+            {/* <button className="fav-button" onClick={ () => handleAddMovie(props)}>Add to Favourites</button> */}
+             {favIndexNumber >= 0 ?                               
+                        <button className="fav-button" onClick={ () => {handleRemoveFromFavourites(props); removeFromStorage()}}>Remove From Favourites<i className="fas fa-heart-broken"></i></button>
+                         :
+                        <button className="fav-button" onClick={ () => handleAddMovie(props)}>Add to Favourites<i className="fas fa-heart"></i></button>}
         </div> 
-      
     )
 } 
 export default AddToFavourites;
 
 
-export const removeOneMovie = (props) => {
+export const removeOneMovie = (id) => {
 
-  let newArray  = JSON.parse(localStorage.getItem("movie-current-favs"));
+/*   let newArray  = JSON.parse(localStorage.getItem("movie-current-favs"));
   newArray.splice(props, 1);
-  localStorage.setItem("movie-current-favs", JSON.stringify(newArray));
+  localStorage.setItem("movie-current-favs", JSON.stringify(newArray)); */
 
+  let favouritesArray = getStorage('movie-current-favs');
+  if(favouritesArray.includes(id, 0)) {
+    const index = favouritesArray.indexOf(id);
+    favouritesArray.splice(index, 1);
+  }
+
+  setStorage(favouritesArray, 'move-current-favs');
 }
 
 
@@ -77,9 +75,12 @@ const FavouritesArray = (props) => {
           <div key={i} className="movies-box">
               <h2>{result.movie.title}</h2>
               <img className="fav-movies" src={`${IMAGE_URL}w185${result.movie.poster_path}`} alt={result.movie.title}></img>
-            
+            {/* 
               <div className="remove-wrapper">
                 <button className="remove-btn" onClick={ () => removeOneMovie(result)}>Remove</button> 
+              </div> */}
+              <div className="remove-wrapper">
+                <button className="remove-btn" onClick={ () => removeFromStorage()}>Remove</button> 
               </div>
           </div>
           

@@ -20,29 +20,43 @@
     padding-left: 20px;
     padding-right: 20px;
     margin: 0 auto;
-    height: auto;   
-
-
+ 
+  
     .movies {
-        margin: 20px 20px;
+        //margin: 20px 20px;
         width: 200px;
         text-align: left;
-        position: relative;
+        //position: relative; puts the rating circle inside poster
         margin: 0 auto;
-        padding-bottom: 10px;
+        padding-bottom: 50px;
+        margin-bottom: 60px;
+        
+    }
+
+    .box h2 {
+        margin-top: 35px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .movie-poster {
-        //box-shadow: linear-gradient(180deg,hsla(0,0%,100%,0) 0,#000);
         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     }
 
+ 
+
     .movie-overview {
+        display: block;
         color: #d2d3d3;
         margin: 0;
         line-height: 1.5;
-   
+        height: 100px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
+
 
     .movie-released {
         color: #45433E;
@@ -55,6 +69,7 @@
         font-size: 18px;
         margin-bottom: 30px;
     }
+    
 }
 
 @media (min-width: 540px) {

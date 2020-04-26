@@ -17,7 +17,7 @@ const About = () => {
 		<section className="section-01">
 			<div className="about-info">
 				<h1>About</h1>
-				<p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
+				<p>This Movie Search Application is built to demonstrate the use of the JavaScript Framework - React. This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
 				<img className="less-logo" src={LessProminentLogo} alt="TMDB Logo"></img>
 			</div>
 

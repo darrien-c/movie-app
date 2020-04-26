@@ -11,7 +11,6 @@ const Favourites = (props) => {
    const [ favStorage, setFavStorage ] = useState(false);
    let favMovies = localStorage.getItem('movie-current-favs');
 
-
    
    const displayFavouritedMovies = () => {
       let favMovies = localStorage.getItem('movie-current-favs');
@@ -24,6 +23,8 @@ const Favourites = (props) => {
       }
    }
 
+
+
    const FavouritesArray = (props) => {     
 
       let storedMovies  = JSON.parse(localStorage.getItem('movie-current-favs')); 
@@ -34,16 +35,13 @@ const Favourites = (props) => {
       let favKey = Object.keys(storedMovies);
     
         return results.map((result, i) => {  
-         
+
           return (    
-    
               <div key={i} className="movies-box">
-                  <h2>{result.movie.title}</h2>
-                  <img className="fav-movies" src={`${IMAGE_URL}w185${result.movie.poster_path}`} alt={result.movie.title}></img>
-                
-                 <div className="remove-wrapper">
-                    <button className="remove-btn" onClick={ () => removeOneMovie(result)}>Remove</button> 
-                  </div> 
+                  <h2>{/* {result.movie.title} */}</h2>
+                  <a href={`/movie/${result.movie.id}`}><img className="fav-movies" src={`${IMAGE_URL}w185${result.movie.poster_path}`} alt={result.movie.title}></img></a>
+                  <br />
+                  <a href={`/movie/${result.movie.id}`} > <button className="viewmore-btn fav-readmore-btn">Read more<i className="fas fa-arrow-right arrow"></i></button></a>
               </div>
               
               
@@ -67,9 +65,9 @@ const Favourites = (props) => {
 
             <div className="fav-movies-wrapper">
                <div  className="fav-movies-container">
-{/*  <DisplayFavArray/> */}
+               {/*  <DisplayFavArray/> */}
 
-{FavouritesArray()}
+               {FavouritesArray()}
 
                </div>
             </div>

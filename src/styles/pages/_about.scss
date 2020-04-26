@@ -1,9 +1,20 @@
 
 .about-info {
-
+    margin-top: 50px;
+    margin-left: 50px;
     color: white;
-    height: 500px;
-    padding-bottom:60px;
-    display: block;
+    height: 300px;
 
+    p{
+        padding-bottom: 30px;
+        max-width: 500px;
+    }
+
+    h1 {
+        margin: 0 auto;
+    }
+}
+
+.less-logo {
+    width: 350px;
 }

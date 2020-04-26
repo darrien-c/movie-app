@@ -2,45 +2,33 @@ import React, { useEffect, useState } from 'react';
 import { API_URL, API_KEY, IMAGE_URL , STORAGE_FAVOURITE_MOVIE } from '../../global/variables';
 import  AddToFavourites  from './AddToFavourites'; 
 import  Favourites  from '../Favourites';
-import { setStorage, getStorage } from '../../utilities/storageMaker';
+import { setStorage, getStorage, removeFromStorage } from '../../utilities/storageMaker';
 import YourFavourites  from './AddToFavourites';
 import SubHeader from './SubHeader';
 
 const Movie = (props) => {
 
     const movieId = props.match.params.movieId
-
     const [movie, setMovie] = useState([]);
     const [fav, setFav] = useState( getStorage() );
-  
+
+    const[result, setResult] = useState(props);
+    const [favIndexNumber, setFavIndexNumber] = useState(-1);
     
     useEffect(() => {
         const movieList = [];
-    
-
         const movieId = props.match.params.movieId;
-      
         const fetchMovie = async () => {
     
-                const response = await fetch(`${API_URL}movie/${movieId}?api_key=${API_KEY}`);
-                const data = await response.json();
-                setMovie(data);
-                
+            const response = await fetch(`${API_URL}movie/${movieId}?api_key=${API_KEY}`);
+            const data = await response.json();
+            setMovie(data);   
                 //movieList.push(data.)
             }
             fetchMovie();
-            
         }, [movie]); 
-    
-        
 
-        
-   const hasDuplicates = (arr) => {
-        arr.some((item, index) => arr.indexOf(item) !== index);
-        console.log('workingyet');
-    } 
-
-      
+              
     return (
         <main>
             <div className="filter-menu">
@@ -57,8 +45,7 @@ const Movie = (props) => {
                         )} 
               
                      
-                <div className="individual-movie-container">   
-                                 
+                <div className="individual-movie-container">                         
                             <div className="individual-movie-info">
                                 <div className="movie-display">
                                     <div className="solo-poster">
@@ -73,12 +60,11 @@ const Movie = (props) => {
                                         <h1>{movie.title}</h1>
                                         <h3>{movie.original_title}</h3>
                                     </div>
-                
                                     <div className="solo-group">
                                         <p className="solo-release">{movie.status}: {movie.release_date}</p>
                                         <i className="fa fa-star"><span>{movie.vote_average}</span></i>
                                         <p className="movie-solo-overview">{movie.overview}</p>
-                                        <AddToFavourites movie={movie} id={movie.id}/>
+                                      <AddToFavourites movie={movie} id={movie.id}/>  
                                     </div>
                                  
                             </div>                      

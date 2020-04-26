@@ -1,4 +1,9 @@
 $breakpoint-tablet: 768px;
+$orange: #DF4500;
+$gray: #35302D;
+$gray-shine: #3C3735;
+$white-off: #DFDBD9;
+
 //minty green: #4cb69f
 
 .movies-filter{
@@ -8,7 +13,7 @@ $breakpoint-tablet: 768px;
     padding: 20px 5px;
     position: relative;
     margin-left: -43px;
-    background-color: #191c1f;
+    background: linear-gradient(to top, #0f0c29, #302b63, #24243e);
     
 }
 
@@ -20,38 +25,48 @@ $breakpoint-tablet: 768px;
 
   
     li {
-        margin: 10px;
-        margin-top: 20px;
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding-bottom: 40px;
         list-style: none;
         display: block;
-        border: 2px solid #7986cb;
-        &:hover {
-        color: #fff;
-	    border-color: #37474f;
-        }
-    }
 
-    .btn-inverted:hover {
-        background-color:  #4cb69f;
+        &:hover {
+            color: #fff;
+            border-color: #37474f;
+        }
+    } 
+    
+
+    .filter-link:hover {
+        background-color:  #4c8cb691;
         border-color: #fff;     
     }
 
-    .btn-inverted:hover:before {
+    .filter-link:hover:before {
         opacity: 1;
         transform: translate3d(0, 0, 0);    
+    } 
+
+    
+    i {
+        margin-top: 30px;
+        padding-top: 20px;
+        margin-left: -10px;
+        margin-right: 10px;
     }
-
-
 
     a{
         text-decoration: none;
         color: white;
         letter-spacing: 1px;
     }
+
+    
+
     
 }
+
+    
+
 
 @media (min-width: $breakpoint-tablet) {
     
@@ -82,9 +97,26 @@ $breakpoint-tablet: 768px;
             padding-left: 25px;
             width: 100%;
         }
+        
     }
 }
 
-    
+@media (min-width: 768px){
+
+    .movies-filter ul {
+        .filter-link:hover {
+            color: #fff;
+            background: #0f0c295d;
+        } 
+
+        i {
+            padding: 0;
+            margin: 0;
+            margin-left: -10px;
+            margin-right: 10px;
+        }
+
+    }
+}
 
 

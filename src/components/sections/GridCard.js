@@ -16,13 +16,15 @@ const makeMovieArr = (movies) => {
         return (
             <div className="movies-container" key={i}>
                 <div className="movies">
-                    <a href={`/movie/${movie.id}`}>
-                    <img className="movie-poster" src={`${IMAGE_URL}w185${movie.poster_path}`} alt={movie.title}></img></a>
-                    <h2>{movie.title}</h2>
+                    <div className="box">
+                        <a href={`/movie/${movie.id}`}>
+                        <img className="movie-poster" src={`${IMAGE_URL}w185${movie.poster_path}`} alt={movie.title}></img></a>
+                        <h2>{movie.title}</h2>
+                    </div>
                     <p className="movie-released">{movie.release_date}</p>
-                    <p className="movie-overview">{movie.overview}</p>
+                    <p className="movie-overview"><span className="overflow-elip">{movie.overview}</span></p>
                    <p><span className="rating-circle">{movie.vote_average}</span></p> 
-                   <span  className="viewmore-btn"><a href={`/movie/${movie.id}`} >View More</a></span>
+                  <a href={`/movie/${movie.id}`} > <button className="viewmore-btn">Read more<i className="fas fa-arrow-right arrow"></i></button></a>
                 </div>            
             </div>
         )

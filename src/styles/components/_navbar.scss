@@ -16,20 +16,31 @@ $contrastColor
     padding: 0;
     display: flex;
 
+    
     li {
         padding: 10px;
+
+    }
+
+    a{
+  
+        color: white;
+        text-decoration: none;
     }
 }
 
-.navbar-items a{
-    color: white;
-    text-decoration: none;
-}
 
-.navbar-items a:hover,
-.navbar-items a:active {
-    color: $contrastColor;
-}
+
+.navbar-items li:hover,
+.navbar-items li:active {
+
+        color: #4A4860;
+
+        box-shadow: 0px 4px 0px 0px rgb(142, 152, 187);
+    
+} 
+
+
 
 .side-toggle {
     height: 100%;
@@ -38,26 +49,34 @@ $contrastColor
     position: fixed;
     top: 0;
     left: 0;
-    width: 70%;
+    width: 60%;
     max-width: 400px;
     z-index: 200;
     transform: translateX(-100%);
     transition: transform 0.3s ease-out;
 
     ul {
+        background-color: #000000;
         height: 100%;
         list-style: none;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        
     }
 
     li {
-        margin: 8px 0;
+        margin: 48px 0;
+        cursor: pointer;
+        text-align: center;
+  
     }
 
     a {
-        color: black;
+        color: rgb(255, 255, 255);
         text-decoration: none;
         font-size: 20px;
     }
