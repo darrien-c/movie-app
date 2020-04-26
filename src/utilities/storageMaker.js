@@ -49,13 +49,26 @@ export const removeAllFromStorage = (movie, storageItem = STORAGE_FAVOURITE_MOVI
     return items;
 } 
 
+
+
 export const removeOneFromStorage = (movie, storageItem = STORAGE_FAVOURITE_MOVIES) => {
     let items = getStorage();
-    const isFavourite = (current) => current.movie === movie;
+    const isFavourite = (current) => current.movie.id === movie.id;
+
     let indexOfItemToRemove = items.findIndex(isFavourite);
     items.splice(indexOfItemToRemove, 1);
     let itemsForStorage = JSON.stringify(items);
     localStorage.setItem(storageItem, itemsForStorage);
     return items;
 } 
-
+ 
+/* 
+export const removeOneFromStorage = (id, storageItem = STORAGE_FAVOURITE_MOVIES) => {
+    let items = getStorage();
+    const isFavourite = (current) => current.id === id;
+    let indexOfItemToRemove = items.findIndex(isFavourite);
+    items.splice(indexOfItemToRemove, 1);
+    let itemsForStorage = JSON.stringify(items);
+    localStorage.setItem(storageItem, itemsForStorage);
+    return items;
+}  */

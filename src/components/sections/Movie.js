@@ -25,6 +25,12 @@ const Movie = (props) => {
             fetchMovie();
         }, [movie]); 
 
+        
+        const handleRemoveFromFavourites = () => {
+            removeOneFromStorage(movieId);
+            //setFavIndexNumber(-1); 
+        
+          }
 
     return (
         <main>
@@ -57,9 +63,9 @@ const Movie = (props) => {
                                 <p className="solo-release">{movie.status}: {movie.release_date}</p>
                                 <i className="fa fa-star"><span>{movie.vote_average} / 10</span></i>
                                 <p className="movie-solo-overview">{movie.overview}</p>
-              
 
-                           <AddToFavourites movie={movie} id={movie.id}/>    
+                         <AddToFavourites movie={movie} id={movie.id} movieparams={movieId}/> 
+
                         </div>                                 
                     </div>                  
                 </div>               

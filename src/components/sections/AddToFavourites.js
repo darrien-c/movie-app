@@ -1,20 +1,19 @@
 import React, { useEffect, useState, setState } from 'react'
 import {  API_URL, API_KEY, IMAGE_URL } from '../../global/variables';
 import { setStorage, getStorage, isItemInStorage, removeAllFromStorage,  removeOneFromStorage } from '../../utilities/storageMaker';
+import { STORAGE_FAVOURITE_MOVIES } from '../../global/variables';
 
 
-const AddToFavourites = (props) => {
+const AddToFavourites = (props, id) => {
 
-  let favouritesArray = getStorage('favs');
+  let favouritesArray = getStorage('favs');  
   
   const [favIndexNumber, setFavIndexNumber] = useState(-1);
   const[result, setResult] = useState(favouritesArray);
-  const [toggle, setToggle] = useState(localStorage.getItem('toggle') === "true");
-
-
-  useEffect(()=> {
+ 
+ useEffect(()=> {
       setFavIndexNumber( isItemInStorage(props, 'favs'));
-  },[props]);
+  }, [props]); 
 
   const handleAddMovie = () => {  
       setStorage(props);
@@ -24,25 +23,20 @@ const AddToFavourites = (props) => {
   }
 
      
-  const handleRemoveFromFavourites = () => {
-    //removeOneFromStorage(favIndexNumber);
-    //removeOneFromStorage( isItemInStorage(props));
-    //removeOneFromStorage(props);
-    removeOneFromStorage(props, 'favs');
+ 
+  const handleRemoveFromFavourites = (props) => {
+    removeOneFromStorage(props);
     setFavIndexNumber(-1); 
   }
 
+ 
 
-
-  
-
-    return (
+  return (
         <div className="fav-wrapper">
               { favIndexNumber >= 0 ?   
-                      <button className="fav-button" onClick={ () => handleRemoveFromFavourites(props)}>Remove From Favourites<i className="fas fa-heart-broken"></i></button>
-                      
+                      <button className="fav-button" onClick={ ()=> handleRemoveFromFavourites(props)}>Remove From Favourites<i className="fas fa-heart-broken"></i></button>
                          :
-                        <button className="fav-button" onClick={ () => handleAddMovie(props)}>Add to Favourites<i className="fas fa-heart"></i></button>} 
+                      <button className="fav-button" onClick={ () => handleAddMovie(props)}>Add to Favourites<i className="fas fa-heart"></i></button>} 
 
         </div> 
     )
