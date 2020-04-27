@@ -33,10 +33,14 @@ const Favourites = (props) => {
         return results.map((result, i) => {  
           return (    
               <div key={i} className="movies-box">
-                  <h2>{/* {result.movie.title} */}</h2>
+                  <h2>{result.movie.title} </h2>
                   <a href={`/movie/${result.movie.id}`}><img className="fav-movies" src={`${IMAGE_URL}w185${result.movie.poster_path}`} alt={result.movie.title}></img></a>
                   <br />
+                  <p className="solo-movie-date">{result.movie.release_date}</p>
+                <p className="solo-movie-vote"><i className="fa fa-star"></i>{result.movie.vote_average} / 10</p>
+                  <p className="solo-movie-overview">{result.movie.overview}</p>
                   <a href={`/movie/${result.movie.id}`} > <button className="viewmore-btn fav-readmore-btn">Read more<i className="fas fa-arrow-right arrow"></i></button></a>
+               
               </div>                           
           )
         })   

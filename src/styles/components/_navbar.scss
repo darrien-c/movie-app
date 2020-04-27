@@ -35,8 +35,7 @@ $contrastColor
 .navbar-items li:active {
 
         color: #4A4860;
-
-        box-shadow: 0px 4px 0px 0px rgb(142, 152, 187);
+        box-shadow: 0px 4px 0px 0px $brandColor;
     
 } 
 
@@ -75,6 +74,13 @@ $contrastColor
   
     }
 
+    li:hover,
+    li:active {
+
+        color: $brandColor;
+        box-shadow: 0px 4px 0px 0px $brandColor;
+     }
+
     a {
         color: rgb(255, 255, 255);
         text-decoration: none;
@@ -84,6 +90,7 @@ $contrastColor
     a:hover,
     a:active {
         color: $brandColor;
+        box-shadow: 0px 4px 0px 0px $brandColor;
     }
 }
 

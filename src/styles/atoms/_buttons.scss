@@ -142,7 +142,8 @@ $background: #303036;
     outline: none;
   
     &:active {
-      transform: scale(0.8) translateY(10%);
+      //transform: scale(0.8) translateY(10%);
+      transform: scale(1.1) translateY(5%);
       transition-timing-function: cubic-bezier(.5, 0, .5, 1);
     }
   }
@@ -231,7 +232,8 @@ $background: #303036;
     outline: none;
   
     &:active {
-      transform: scale(0.8) translateY(10%);
+      //transform: scale(0.8) translateY(10%);
+      transform: scale(1.1) translateY(5%);
       transition-timing-function: cubic-bezier(.5, 0, .5, 1);
     }
   }

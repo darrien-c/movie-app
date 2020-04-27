@@ -31,6 +31,31 @@ h2 {
     margin: 0;
 }
 
+.solo-movie-date, 
+.solo-movie-vote,
+.solo-movie-overview {
+    color: white;
+}
+
+
+    .fa-star {
+        color: yellow;
+        padding-right: 5px;
+    }
+
+
+.solo-movie-date {
+    padding-top: 30px;
+}
+
+.solo-movie-overview {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 300px;
+    margin: 0 auto;
+}
 
 @media (min-width: 560px) {
     .fav-movies-container {
