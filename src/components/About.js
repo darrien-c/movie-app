@@ -5,9 +5,6 @@ import LessProminentLogo from '../tmdb_less-prominate.svg';
 
 const About = () => {
 
-
-
-
 	return(
 	
 	<main>

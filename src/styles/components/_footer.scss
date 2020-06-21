@@ -10,29 +10,21 @@
     }
 
 
-/*
-@media (min-width: 538px) {
-    .footer-wrapper{
-        margin-top: 660px;
-    }   color: #4f625e;
-}
- */
-
 @media (min-width: 768px){
     .footer-wrapper {
         display: flex;
         flex-direction: column;
         margin-top: -25px;
-        text-align: left;
-        
+        text-align: left;    
+        position: fixed;
+        bottom: 0;
     }
 
     .footer-container {
-        //background: #191c1f;
-        background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+        background: linear-gradient(to top, #080711, #0e0d1d, #07070c);
         width: 157px;
-        margin-bottom: -5000px; /* any large number will do */
-        padding-bottom: 5000px;
+        /* margin-bottom: -5000px; */ /* any large number will do */
+       /*  padding-bottom: 5000px; */
         overflow: hidden;
     }
 
@@ -40,8 +32,8 @@
         font-size: 13px;
         text-align: center;
         position: absolute;
-        margin-top: 10em;
-        width: 153px;
+        bottom: 0; 
+        width: 153px;    
     } 
 
 }
@@ -49,8 +41,6 @@
 @media (min-width: 1068px){
    
     .footer-wrapper p{
-        margin-top: -3em;
-        padding-bottom: 0;
-    
+        padding-bottom: 0;    
     } 
 }

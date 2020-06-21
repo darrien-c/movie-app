@@ -13,7 +13,7 @@ const Header = (props) => (
         </div>
 
         <div className="header-logo">
-          <NavLink to = {'/'}><img  src={logo} /></NavLink>
+          <NavLink to = {'/movie-app'}><img  src={logo} /></NavLink>
         </div>
           <Nav />
       </nav>

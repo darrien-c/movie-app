@@ -12,9 +12,9 @@ const sideToggle = (props) => {
    return ( 
    <nav className={toggleClasses}>
         <ul>
-            <li onClick={props.click}><NavLink to={'/'} exact>Home</NavLink></li>
-            <li onClick={props.click}><NavLink to={'/favourites'}>Favourites</NavLink></li>
-            <li onClick={props.click}><NavLink to={'/about'}>About</NavLink></li>
+            <li onClick={props.click}><NavLink to={'/movie-app'} exact>Home</NavLink></li>
+            <li onClick={props.click}><NavLink to={'/movie-app/favourites'}>Favourites</NavLink></li>
+            <li onClick={props.click}><NavLink to={'/movie-app/about'}>About</NavLink></li>
         </ul>
     </nav>
    )

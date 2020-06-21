@@ -57,20 +57,23 @@
 }
 
 
-@media (min-width: 1068px) {
+@media (min-width: 1260px) {
 
     .poster-backdrop {
         display: block;
         filter: grayscale(60%) brightness(30%) drop-shadow(0 0 0.75rem rgb(3, 3, 3));
         position: absolute;
         z-index: -1;
-        margin-top: -10px;
-        max-width: inherit;
+        margin-top: 0px;
         margin-left: -30px;
+        width: 100%;
+        object-fit: cover;
+        margin: 0 auto;
     }
 
     .individual-movie-container {
-        margin-top: 150px;
+        margin-top: 80px;
+        margin-left: 50px;
     }
 
     .individual-movie-info {
@@ -78,7 +81,6 @@
         grid-template-columns: 1.5fr 1.5fr 0.5fr;
 
         .solo-release {
-            padding-top: 30px;
             text-align: left;
         }
 
@@ -89,6 +91,14 @@
             span{
                 margin-left: 15px;
                 font-family: 'Nunito Sans', sans-serif;
+            }
+        }
+
+        .fav-wrapper {
+            margin-top: 0;
+
+            .fav-button {
+                font-size: 1.5vmin;
             }
         }
     }

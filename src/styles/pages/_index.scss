@@ -82,6 +82,13 @@
     }  
 } 
 
+@media(min-width: 610px) {
+    .section-01 {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
 @media ( min-width: 768px ) {
     .section-01 {
         position: absolute;    

@@ -13,8 +13,11 @@ $white-off: #DFDBD9;
     padding: 20px 5px;
     position: relative;
     margin-left: -43px;
-    background: linear-gradient(to top, #0f0c29, #302b63, #24243e);
-    
+    background: linear-gradient(to top, #080711, #0e0d1d, #07070c);
+
+    .fa-star {
+        color: white;
+    }
 }
 
 .movies-filter ul {
@@ -58,15 +61,9 @@ $white-off: #DFDBD9;
         text-decoration: none;
         color: white;
         letter-spacing: 1px;
-    }
-
-    
-
-    
+    }      
 }
-
-    
-
+  
 
 @media (min-width: $breakpoint-tablet) {
     
@@ -74,8 +71,7 @@ $white-off: #DFDBD9;
         display: block;
         width: 200px;
         height: 100vh;
-        margin-top: 60px;
-        
+        margin-top: 60px;        
     }
   
     .movies-filter ul{
@@ -103,19 +99,16 @@ $white-off: #DFDBD9;
 
 @media (min-width: 768px){
 
-    .movies-filter ul {
-        .filter-link:hover {
-            color: #fff;
-            background: #0f0c295d;
-        } 
-
-        i {
-            padding: 0;
-            margin: 0;
-            margin-left: -10px;
-            margin-right: 10px;
+    .movies-filter {
+        position: fixed;
+        ul {
+            i {
+                padding: 0;
+                margin: 0;
+                margin-left: -10px;
+                margin-right: 10px;
+            }
         }
-
     }
 }
 

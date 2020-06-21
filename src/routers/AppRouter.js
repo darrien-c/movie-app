@@ -20,7 +20,7 @@ import Home from '../components/Home';
 import Favourites from '../components/Favourites';
 import PageNotFound from '../components/PageNotFound';
 import Movie from '../components/sections/Movie';
-
+import { APP_FOLDER_NAME } from '../global/variables';
 
 
 
@@ -55,7 +55,7 @@ class AppRouter extends React.Component {
         return (
             
             <Router>
-                <div className="wrapper">
+                <div className="wrapper" basename={APP_FOLDER_NAME}>
                     <Header sideToggleClickHandler={this.sideToggleClickHandler}/>
                     
                     <SideToggle show={this.state.sideToggleOpen} 
@@ -63,18 +63,17 @@ class AppRouter extends React.Component {
                     {backdrop}
                     
                     <Switch>
-                        <Route path="/" exact><Home /></Route>
-                        <Route path="/about" exact><About /></Route>
-                        <Route path="/favourites" exact><Favourites /></Route>
-                        <Route path="/nowplaying"  component={NowPlaying} />
-                        <Route path="/toprated"  component={TopRated} />
-                        <Route path="/upcoming"  component={Upcoming} />
-                        <Route path="/movie/:movieId" exact component={Movie} />
-                        <Route path="/movie/:movieId" exact component={Favourites} />
+                        <Route path="/movie-app/" exact><Home /></Route>
+                        <Route path="/movie-app/about" exact><About /></Route>
+                        <Route path="/movie-app/favourites" exact><Favourites /></Route>
+                        <Route path="/movie-app/nowplaying"  component={NowPlaying} />
+                        <Route path="/movie-app/toprated"  component={TopRated} />
+                        <Route path="/movie-app/upcoming"  component={Upcoming} />
+                        <Route path="/movie-app/movie/:movieId" exact component={Movie} />
+                        <Route path="/movie-app/movie/:movieId" exact component={Favourites} />
                         <Route><PageNotFound /></Route>
                     </Switch>
-                </div>
-          
+                </div>         
                 <Footer></Footer>
             </Router>
             
