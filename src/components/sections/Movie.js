@@ -20,17 +20,9 @@ const Movie = (props) => {
             const response = await fetch(`${API_URL}movie/${movieId}?api_key=${API_KEY}`);
             const data = await response.json();
             setMovie(data);   
-                //movieList.push(data.)
             }
             fetchMovie();
         }, [movie]); 
-
-        
-        const handleRemoveFromFavourites = () => {
-            removeOneFromStorage(movieId);
-            //setFavIndexNumber(-1); 
-        
-          }
 
     return (
         <main>

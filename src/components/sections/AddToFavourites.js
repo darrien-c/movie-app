@@ -21,7 +21,6 @@ const AddToFavourites = (props, id) => {
       favsFromStorage.push(result);   
       setFavIndexNumber(favsFromStorage.length - 1);
   }
-
      
  
   const handleRemoveFromFavourites = (props) => {
@@ -37,7 +36,6 @@ const AddToFavourites = (props, id) => {
                       <button className="fav-button" onClick={ ()=> handleRemoveFromFavourites(props)}>Remove From Favourites<i className="fas fa-heart-broken"></i></button>
                          :
                       <button className="fav-button" onClick={ () => handleAddMovie(props)}>Add to Favourites<i className="fas fa-heart"></i></button>} 
-
         </div> 
     )
 } 
@@ -64,14 +62,11 @@ const FavouritesArray = (props) => {
               <div className="remove-wrapper">
                 <button className="remove-btn" onClick={ () => removeAllFromStorage()}>Remove</button> 
               </div>
-          </div>
-          
+          </div>         
           
       )
     })   
 }
-
-
 
       
 export const DisplayFavArray = (props) => {

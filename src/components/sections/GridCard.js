@@ -17,8 +17,8 @@ const makeMovieArr = (movies) => {
             <div className="movies-container" key={i}>
                 <div className="movies">
                     <div className="box">
-                        <a href={`/movie-app/movie/${movie.id}`}>
-                        <img className="movie-poster" src={`${IMAGE_URL}w185${movie.poster_path}`} alt={movie.title}></img></a>
+                        <Link to={`/movie-app/movie/${movie.id}`}>
+                        <img className="movie-poster" src={`${IMAGE_URL}w185${movie.poster_path}`} alt={movie.title}></img></Link>
                         <h2>{movie.title}</h2>
                     </div>
                     <p className="movie-released">{movie.release_date}</p>
@@ -37,7 +37,6 @@ export const GridCard = (props) => {
     return (
         <div>
             {makeMovieArr(props.movies)}
-
         </div>
     )
 }
