@@ -6,12 +6,12 @@ import { BrowserRouter as Redirect, Link, NavLink, Route } from 'react-router-do
 
 const makeMovieArr = (movies) => {
 
-    movies.sort(function(a, b){
+/*     movies.sort(function(a, b){
         return b.vote_average - a.vote_average;
     })
 
-    movies.length = 12;
-
+    movies.length = 12; */
+    console.log(movies);
     return movies.map((movie, i) =>{
         return (
             <div className="movies-container" key={i}>
@@ -22,9 +22,9 @@ const makeMovieArr = (movies) => {
                         <h2>{movie.title}</h2>
                     </div>
                     <p className="movie-released">{movie.release_date}</p>
-                    <p className="movie-overview"><span className="overflow-elip">{movie.overview}</span></p>
+                    {/* <p className="movie-overview"><span className="overflow-elip">{movie.overview}</span></p> */}
                    <p><span className="rating-circle">{movie.vote_average}</span></p> 
-                  <Link to={`/movie-app/movie/${movie.id}`} className="viewmore-btn">Read more<i className="fas fa-arrow-right arrow"></i></Link>
+                  <Link to={`/movie-app/movie/${movie.id}`}>Read more</Link>
                 </div>            
             </div>
         )

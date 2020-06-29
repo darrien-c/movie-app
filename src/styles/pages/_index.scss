@@ -2,7 +2,7 @@
 //poster small 185 x 278
 
 .section-01 {
-    margin: 5% 5%;
+    margin: 4% 4%;
 
     h1{
         margin-left: 40px;
@@ -23,13 +23,16 @@
  
   
     .movies {
-        //margin: 20px 20px;
         width: 200px;
         text-align: left;
         //position: relative; puts the rating circle inside poster
         margin: 0 auto;
         padding-bottom: 50px;
         margin-bottom: 60px;
+
+        a, a:visited {
+            color: rgb(90, 105, 145);
+        }
         
     }
 
@@ -62,12 +65,14 @@
         color: #45433E;
         font-weight: 400;
         font-style: italic;
+        margin-top: 5px;
+        margin-bottom: 30px;
     }
 
     h2 {
         color: white;
         font-size: 18px;
-        margin-bottom: 30px;
+     
     }
     
 }
@@ -98,8 +103,6 @@
         max-width: 1450px;
         margin-left: 200px;
         padding-top: 11px;
-        //padding-left: 110px;
-
     }
 
     .movies-container {
@@ -113,6 +116,10 @@
         word-wrap: break-word;
         overflow: hidden;
         padding-left: 25px; 
+
+        a, a:visited {
+            color: rgb(90, 105, 145);
+        }
     }
 
     .movie-overview {

@@ -36,9 +36,6 @@ const Favourites = (props) => {
                   <h2>{result.movie.title} </h2>
                   <a href={`/movie-app/movie/${result.movie.id}`}><img className="fav-movies" src={`${IMAGE_URL}w185${result.movie.poster_path}`} alt={result.movie.title}></img></a>
                   <br />
-                  <p className="solo-movie-date">{result.movie.release_date}</p>
-                <p className="solo-movie-vote"><i className="fa fa-star"></i>{result.movie.vote_average} / 10</p>
-                  <p className="solo-movie-overview">{result.movie.overview}</p>
                   <a href={`/movie-app/movie/${result.movie.id}`} > <button className="viewmore-btn fav-readmore-btn">Read more<i className="fas fa-arrow-right arrow"></i></button></a>
                
               </div>                           
@@ -54,9 +51,9 @@ const Favourites = (props) => {
          </div>
          <div className="section-01">
             <h1>Favourites</h1>
-            <div className="remove-all-wrapper" >
+      {/*       <div className="remove-all-wrapper" >
                   <button className="remove-all-btn" onClick={ () => removeAllFromStorage()}>Remove All Favourites</button> 
-            </div>
+            </div> */}
 
             { displayFavouritedMovies() }
 

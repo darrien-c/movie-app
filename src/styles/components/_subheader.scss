@@ -8,12 +8,14 @@ $white-off: #DFDBD9;
 
 .movies-filter{
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 43px;
     margin-bottom: 25px;
     padding: 20px 5px;
     position: relative;
     margin-left: -43px;
     background: linear-gradient(to top, #080711, #0e0d1d, #07070c);
+    display: block;
+    
 
     .fa-star {
         color: white;
@@ -25,9 +27,13 @@ $white-off: #DFDBD9;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 90px 90px;
     text-align: center;
-
   
     li {
+        position: fixed;
+        background-color: #07070c;
+        width: 53%;
+        z-index: 9;
+        
         padding-bottom: 40px;
         list-style: none;
         display: block;
@@ -92,6 +98,8 @@ $white-off: #DFDBD9;
             padding-bottom: 20px;
             padding-left: 25px;
             width: 100%;
+
+            position: relative;
         }
         
     }
@@ -102,6 +110,10 @@ $white-off: #DFDBD9;
     .movies-filter {
         position: fixed;
         ul {
+
+            li {
+                background-color: transparent;
+            }
             i {
                 padding: 0;
                 margin: 0;
