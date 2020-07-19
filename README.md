@@ -2,7 +2,7 @@
 https://darrien-c.github.io/movie-app/
 
 ## Description
-Browse by ratings to showcase suggested movies
+A movie app built with React - browse by filters, such as Top rated, Popular, etc to showcase suggested movies and create your own favourites list!
 
 ## Technologies
 • ReactJS
